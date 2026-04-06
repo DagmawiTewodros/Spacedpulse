@@ -8,10 +8,10 @@
 
 Core Features
 
-•Create unlimited Decks
-•Add Cards with text
-•Built-in Spaced Repetition notification
-•Study session with card flipping and quality rating (0–5)
-•Pomodoro Timer integrated into study sessions
-•Dark mode study screen with timer and card display
-•Easy card editing and deletion
+•Create unlimited Decks  
+•Add Cards with text  
+•Built-in Spaced Repetition notification  
+•Study session with card flipping and quality rating (0–5)  
+•Pomodoro Timer integrated into study sessions  
+•Dark mode study screen with timer and card display  
+•Easy card editing and deletion  
