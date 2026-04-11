@@ -6,7 +6,8 @@
 | Mesud Wubetu     | UGR/6122/16 |
 | Tsinat Yilma     | UGR/9900/15 |
 
-<<<<<<< HEAD
+Features  
+
 1. Crop Registration
 Add new crops with name, type (Maize, Rice, Tomato, etc.), variety, planting date, days to maturity (auto-calculates harvest date), field/plot name, quantity planted, and optional photo. Edit or delete crops anytime. View all active crops separately from harvested history. Search by name or field, filter by type or status, and sort by planting date or harvest date.
 
