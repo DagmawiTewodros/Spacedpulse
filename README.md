@@ -1,11 +1,12 @@
-| Name               | ID Number   |
-|--------------------|------------|
-| Yohannis Tadesse   | UGR/7497/16 |
-| Dagmawi Tewodros   | UGR/7661/16 |
-| Omer Abubeker      | UGR/6702/16 |
-| Mesud Wubetu       | UGR/6122/16 |        
-| Tsinat Yilma       | UGR/9900/15 |
+| Name             | ID Number   |
+| ---------------- | ----------- |
+| Yohannis Tadesse | UGR/7497/16 |
+| Dagmawi Tewodros | UGR/7661/16 |
+| Omer Abubeker    | UGR/6702/16 |
+| Mesud Wubetu     | UGR/6122/16 |
+| Tsinat Yilma     | UGR/9900/15 |
 
+<<<<<<< HEAD
 1. Crop Registration
 Add new crops with name, type (Maize, Rice, Tomato, etc.), variety, planting date, days to maturity (auto-calculates harvest date), field/plot name, quantity planted, and optional photo. Edit or delete crops anytime. View all active crops separately from harvested history. Search by name or field, filter by type or status, and sort by planting date or harvest date.
 
@@ -26,3 +27,4 @@ Monthly calendar displaying all crop activities. Shows 💧 icons on watering du
 
 7. Local Storage, Export & Security
 All data stored completely offline using SQLite – no internet permission required. Export any data to CSV (crops list, harvest history, or journal notes separately) and share via any app. Backup entire database to device storage and restore from backup file. Secure the app with optional PIN lock or biometric unlock (fingerprint/face ID). Global notification settings to enable/disable all notifications, toggle watering/harvest notifications separately. Dark mode and light mode toggle.
+=======
