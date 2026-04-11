@@ -27,4 +27,3 @@ Monthly calendar displaying all crop activities. Shows 💧 icons on watering du
 
 7. Local Storage, Export & Security
 All data stored completely offline using SQLite – no internet permission required. Export any data to CSV (crops list, harvest history, or journal notes separately) and share via any app. Backup entire database to device storage and restore from backup file. Secure the app with optional PIN lock or biometric unlock (fingerprint/face ID). Global notification settings to enable/disable all notifications, toggle watering/harvest notifications separately. Dark mode and light mode toggle.
-=======
