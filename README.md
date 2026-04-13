@@ -6,7 +6,9 @@
 | Mesud Wubetu     | UGR/6122/16 |
 | Tsinat Yilma     | UGR/9900/15 |
 
-Features  
+FarmKeeper is a local-only mobile app designed for farmers to manage their crops, track watering schedules, and monitor harvest dates. Farmers can register each crop they plant (name, type, planting date, and days to maturity), and the app automatically calculates the expected harvest date. The app sends push reminders for watering based on custom intervals and notifies the farmer when harvest time is approaching.
+
+Features
 
 1. Crop Registration
 Add new crops with name, type (Maize, Rice, Tomato, etc.), variety, planting date, days to maturity (auto-calculates harvest date), field/plot name, quantity planted, and optional photo. Edit or delete crops anytime. View all active crops separately from harvested history. Search by name or field, filter by type or status, and sort by planting date or harvest date.
