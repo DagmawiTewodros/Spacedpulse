@@ -3,7 +3,7 @@
 | Yohannis Tadesse | UGR/7497/16 |
 | Dagmawi Tewodros | UGR/7661/16 |
 | Omer Abubeker    | UGR/6702/16 |
-| Mesud Wubetu     | UGR/6122/16 |
+| Masud Wubetu     | UGR/6122/16 |
 | Tsinat Yilma     | UGR/9900/15 |
 
 FarmKeeper is a local-only mobile app designed for farmers to manage their crops, track watering schedules, and monitor harvest dates. Farmers can register each crop they plant (name, type, planting date, and days to maturity), and the app automatically calculates the expected harvest date. The app sends push reminders for watering based on custom intervals and notifies the farmer when harvest time is approaching.
