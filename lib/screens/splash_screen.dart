@@ -27,8 +27,8 @@ class SplashScreen extends StatelessWidget {
               
               // Main circular image
               Container(
-                width: 400,
-                height: 400,
+                width: 250,
+                height: 250,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: const DecorationImage(
