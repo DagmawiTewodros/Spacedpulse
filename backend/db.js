@@ -35,6 +35,23 @@ const initializeDB = async () => {
       )
     `);
     console.log('PostgreSQL: Crops table initialized.');
+
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS crop_journal (
+        id SERIAL PRIMARY KEY,
+        crop_id INTEGER REFERENCES crops(id) ON DELETE CASCADE,
+        category VARCHAR(50) NOT NULL,
+        note_text TEXT,
+        photo_url TEXT,
+        weather_condition VARCHAR(50),
+        pest_name VARCHAR(255),
+        treatment_applied VARCHAR(255),
+        fertilizer_name VARCHAR(255),
+        fertilizer_quantity VARCHAR(100),
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    console.log('PostgreSQL: Crop Journal table initialized.');
   } catch (err) {
     console.error('Error initializing database:', err);
   }
