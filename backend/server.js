@@ -4,6 +4,7 @@ const cors = require('cors');
 const { initializeDB } = require('./db');
 const cropsRoutes = require('./routes/cropsRoutes');
 const journalRoutes = require('./routes/journalRoutes');
+const dashboardRoutes = require('./routes/dashboardRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -26,6 +27,7 @@ app.get('/', (req, res) => {
 // Routes
 app.use('/api/crops', cropsRoutes);
 app.use('/api/journal', journalRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 // Start Server locally
 app.listen(PORT, () => {
