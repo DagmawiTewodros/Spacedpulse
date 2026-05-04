@@ -39,7 +39,20 @@ db.serialize(() => {
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )
   `);
-  console.log('Crops table initialized.');
+
+  // Add new columns for Watering and Harvesting if they don't exist
+  const addColumn = (columnDef) => {
+    db.run(`ALTER TABLE crops ADD COLUMN ${columnDef}`, () => {}); // Ignore duplicate column errors
+  };
+  addColumn('watering_interval_days INTEGER');
+  addColumn('last_watered_date TEXT');
+  addColumn('actual_harvest_date TEXT');
+  addColumn('yield_amount REAL');
+  addColumn('yield_unit TEXT');
+  addColumn('quality_rating INTEGER');
+  addColumn('harvest_notes TEXT');
+
+  console.log('Crops table initialized with watering and harvest fields.');
 });
 
 // Basic testing route
@@ -54,16 +67,16 @@ app.get('/', (req, res) => {
 
 // Create a new crop
 app.post('/api/crops', (req, res) => {
-  const { name, type, variety, planting_date, days_to_maturity, field_name, quantity, photo_url } = req.body;
+  const { name, type, variety, planting_date, days_to_maturity, field_name, quantity, photo_url, watering_interval_days } = req.body;
   
   // Auto-calculate estimated harvest date based on PRD
   const plantingDateObj = new Date(planting_date);
   const harvestDateObj = new Date(plantingDateObj.setDate(plantingDateObj.getDate() + parseInt(days_to_maturity)));
   const estimated_harvest_date = harvestDateObj.toISOString().split('T')[0];
 
-  const sql = `INSERT INTO crops (name, type, variety, planting_date, days_to_maturity, estimated_harvest_date, field_name, quantity, photo_url) 
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-  const params = [name, type, variety, planting_date, days_to_maturity, estimated_harvest_date, field_name, quantity, photo_url];
+  const sql = `INSERT INTO crops (name, type, variety, planting_date, days_to_maturity, estimated_harvest_date, field_name, quantity, photo_url, watering_interval_days) 
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+  const params = [name, type, variety, planting_date, days_to_maturity, estimated_harvest_date, field_name, quantity, photo_url, watering_interval_days || null];
   
   db.run(sql, params, function(err) {
     if (err) return res.status(400).json({ error: err.message });
@@ -130,6 +143,41 @@ app.delete('/api/crops/:id', (req, res) => {
   db.run('DELETE FROM crops WHERE id = ?', req.params.id, function(err) {
     if (err) return res.status(400).json({ error: err.message });
     res.json({ message: 'Crop deleted successfully', changes: this.changes });
+  });
+});
+
+// --- WATERING ROUTES ---
+
+// Mark crop as watered today
+app.post('/api/crops/:id/water', (req, res) => {
+  const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+  
+  const sql = `UPDATE crops SET last_watered_date = ? WHERE id = ?`;
+  db.run(sql, [today, req.params.id], function(err) {
+    if (err) return res.status(400).json({ error: err.message });
+    res.json({ message: 'Crop watered successfully', last_watered_date: today, changes: this.changes });
+  });
+});
+
+// --- HARVEST ROUTES ---
+
+// Record actual harvest
+app.post('/api/crops/:id/harvest', (req, res) => {
+  const { actual_harvest_date, yield_amount, yield_unit, quality_rating, harvest_notes } = req.body;
+  
+  const sql = `UPDATE crops SET 
+               is_harvested = 1, 
+               actual_harvest_date = ?, 
+               yield_amount = ?, 
+               yield_unit = ?, 
+               quality_rating = ?, 
+               harvest_notes = ? 
+               WHERE id = ?`;
+  const params = [actual_harvest_date, yield_amount, yield_unit, quality_rating, harvest_notes, req.params.id];
+  
+  db.run(sql, params, function(err) {
+    if (err) return res.status(400).json({ error: err.message });
+    res.json({ message: 'Harvest recorded successfully', changes: this.changes });
   });
 });
 
