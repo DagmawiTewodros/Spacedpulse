@@ -5,6 +5,7 @@ const { initializeDB } = require('./db');
 const cropsRoutes = require('./routes/cropsRoutes');
 const journalRoutes = require('./routes/journalRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
+const exportRoutes = require('./routes/exportRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,6 +29,7 @@ app.get('/', (req, res) => {
 app.use('/api/crops', cropsRoutes);
 app.use('/api/journal', journalRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/export', exportRoutes);
 
 // Start Server locally
 app.listen(PORT, () => {
