@@ -10,18 +10,16 @@ import '../../screens/onboarding2_screen.dart';
 import '../../screens/login_screen.dart';
 import '../../screens/reminder_screen.dart';
 
-
 final GoRouter appRouter = GoRouter(
-  initialLocation: '/reminder_screen',
+  initialLocation: '/create_account_screen',
 
   routes: [
     GoRoute(
-      path: '/splash_screen', 
-      builder: (context, state) => const SplashScreen()),
+      path: '/splash_screen',
+      builder: (context, state) => const SplashScreen(),
+    ),
 
-    GoRoute(
-      path: '/home', 
-      builder: (context, state) => const HomeScreen()),
+    GoRoute(path: '/home', builder: (context, state) => const HomeScreen()),
 
     GoRoute(
       path: '/home_screen',

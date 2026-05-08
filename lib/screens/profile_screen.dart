@@ -21,7 +21,7 @@ class ProfilePage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.notifications_outlined, color: Colors.black),
             onPressed: () {
-              context.push('/notifications');
+              context.push('/notifications_screen');
             },
           ),
         ],
@@ -135,7 +135,7 @@ class ProfilePage extends StatelessWidget {
                 ),
 
                 onPressed: () {
-                  context.go('/onboarding');
+                  context.go('/onboarding_screen');
                 },
 
                 child: const Text(
@@ -176,7 +176,7 @@ class ProfilePage extends StatelessWidget {
                   Icons.home_filled,
                   'HOME',
                   false,
-                  '/home',
+                  '/home_screen',
                 ),
 
                 _buildNavItem(
@@ -208,7 +208,7 @@ class ProfilePage extends StatelessWidget {
                   Icons.person_outline,
                   'PROFILE',
                   true,
-                  '/profile',
+                  '/profile_screen',
                 ),
               ],
             ),

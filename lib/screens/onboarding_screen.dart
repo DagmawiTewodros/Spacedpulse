@@ -47,12 +47,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         currentPage++;
       });
     } else {
-      context.go('/home');
+      context.go('/home_screen');
     }
   }
 
   void skip() {
-    context.go('/home');
+    context.go('/home_screen');
   }
 
   @override

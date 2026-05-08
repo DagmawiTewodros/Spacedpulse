@@ -344,7 +344,7 @@ class HomeScreen extends StatelessWidget {
                   Icons.person_outline,
                   'PROFILE',
                   false,
-                  '/profile',
+                  '/profile_screen',
                 ),
               ],
             ),
