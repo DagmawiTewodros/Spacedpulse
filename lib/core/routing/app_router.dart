@@ -5,14 +5,23 @@ import '../../screens/onboarding_screen.dart';
 import '../../screens/notifications_screen.dart';
 import '../../screens/profile_screen.dart';
 import '../../screens/settings_screen.dart';
+import '../../screens/create_account_screen.dart';
+import '../../screens/onboarding2_screen.dart';
+import '../../screens/login_screen.dart';
+import '../../screens/reminder_screen.dart';
+
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: '/onboarding',
+  initialLocation: '/reminder_screen',
 
   routes: [
-    GoRoute(path: '/', builder: (context, state) => const SplashScreen()),
+    GoRoute(
+      path: '/splash_screen', 
+      builder: (context, state) => const SplashScreen()),
 
-    GoRoute(path: '/home', builder: (context, state) => const HomeScreen()),
+    GoRoute(
+      path: '/home', 
+      builder: (context, state) => const HomeScreen()),
 
     GoRoute(
       path: '/home_screen',
@@ -20,20 +29,41 @@ final GoRouter appRouter = GoRouter(
     ),
 
     GoRoute(
-      path: '/onboarding',
+      path: '/onboarding_screen',
       builder: (context, state) => const OnboardingScreen(),
     ),
 
     GoRoute(
-      path: '/notifications',
+      path: '/notifications_screen',
       builder: (context, state) => const NotificationsPage(),
     ),
 
-    GoRoute(path: '/profile', builder: (context, state) => const ProfilePage()),
+    GoRoute(
+      path: '/profile_screen',
+      builder: (context, state) => const ProfilePage(),
+    ),
 
     GoRoute(
-      path: '/settings',
+      path: '/settings_screen',
       builder: (context, state) => const SettingsPage(),
+    ),
+
+    GoRoute(
+      path: '/create_account_screen',
+      builder: (context, state) => const CreateAccountScreen(),
+    ),
+
+    GoRoute(
+      path: '/onboarding2_screen',
+      builder: (context, state) => const OnboardingAnalyticsScreen(),
+    ),
+    GoRoute(
+      path: '/login_screen',
+      builder: (context, state) => const LoginScreen(),
+    ),
+    GoRoute(
+      path: '/reminder_screen',
+      builder: (context, state) => const WateringReminderScreen(),
     ),
   ],
 );

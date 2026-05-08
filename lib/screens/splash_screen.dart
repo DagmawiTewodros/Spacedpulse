@@ -1,7 +1,35 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  double progress = 0;
+
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Animate loader
+    Timer.periodic(const Duration(milliseconds: 50), (timer) {
+      setState(() {
+        progress += 0.02;
+      });
+
+      if (progress >= 1) {
+        timer.cancel();
+
+        context.go('/profile_screen');
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +41,9 @@ class SplashScreen extends StatelessWidget {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color(0xFFE8F5E9), // Light green-ish
-              Color(0xFFF1F8E9), // Very light yellow-green
-              Color(0xFFF9FBE7), // Cream
+              Color(0xFFE8F5E9),
+              Color(0xFFF1F8E9),
+              Color(0xFFF9FBE7),
             ],
           ),
         ),
@@ -24,34 +52,34 @@ class SplashScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Spacer(flex: 2),
-              
+
               // Main circular image
               Container(
                 width: 250,
                 height: 250,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
-                  image: const DecorationImage(
+                  image: DecorationImage(
                     image: AssetImage('assets/images/splash.png'),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
-              
+
               const SizedBox(height: 20),
-              
+
               // Logo icon
               Transform.scale(
                 scaleX: -1,
                 child: const Icon(
                   Icons.psychology,
                   size: 70,
-                  color: Color(0xFF1B5E20), // Dark green
+                  color: Color(0xFF1B5E20),
                 ),
               ),
-              
+
               const SizedBox(height: 10),
-              
+
               // App Name
               const Text(
                 'FarmKeeper',
@@ -62,9 +90,9 @@ class SplashScreen extends StatelessWidget {
                   letterSpacing: -1.0,
                 ),
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               // Tagline
               const Text(
                 'Precision technology for the\nmodern harvest.',
@@ -75,10 +103,9 @@ class SplashScreen extends StatelessWidget {
                   height: 1.5,
                 ),
               ),
-              
+
               const Spacer(flex: 3),
-              
-              // Custom Progress Bar
+
               Container(
                 width: 150,
                 height: 4,
@@ -87,8 +114,9 @@ class SplashScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(2),
                 ),
                 alignment: Alignment.centerLeft,
-                child: Container(
-                  width: 50, // Partially filled
+                child: AnimatedContainer(
+                  duration: const Duration(milliseconds: 50),
+                  width: 150 * progress,
                   height: 4,
                   decoration: BoxDecoration(
                     color: const Color(0xFF2E7D32),
@@ -96,9 +124,9 @@ class SplashScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              
+
               const SizedBox(height: 24),
-              
+
               // Status text
               const Text(
                 'INITIALIZING FIELD SENSORS',
@@ -109,21 +137,20 @@ class SplashScreen extends StatelessWidget {
                   color: Color(0xFF757575),
                 ),
               ),
-              
+
               const SizedBox(height: 8),
-              
               // Three dots
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _buildDot(const Color(0xFF81C784)), // Active dot
+                  _buildDot(const Color(0xFF81C784)),
                   const SizedBox(width: 6),
                   _buildDot(Colors.grey[400]!),
                   const SizedBox(width: 6),
                   _buildDot(Colors.grey[400]!),
                 ],
               ),
-              
+
               const Spacer(),
             ],
           ),
