@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -178,13 +179,11 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      mainAxisAlignment:
-                          MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                       children: [
                         Column(
-                          crossAxisAlignment:
-                              CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
 
                           children: const [
                             Text(
@@ -206,10 +205,7 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
 
-                        const Icon(
-                          Icons.bar_chart,
-                          color: Colors.grey,
-                        ),
+                        const Icon(Icons.bar_chart, color: Colors.grey),
                       ],
                     ),
 
@@ -228,8 +224,7 @@ class HomeScreen extends StatelessWidget {
                               value: 0.78,
                               strokeWidth: 12,
                               backgroundColor: Colors.white,
-                              valueColor:
-                                  AlwaysStoppedAnimation<Color>(
+                              valueColor: AlwaysStoppedAnimation<Color>(
                                 Color(0xFF1B5E20),
                               ),
                             ),
@@ -276,8 +271,7 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(height: 8),
 
                     Row(
-                      mainAxisAlignment:
-                          MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                       children: [
                         _buildLegendItem(
@@ -313,23 +307,13 @@ class HomeScreen extends StatelessWidget {
 
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 12,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
 
             child: Row(
-              mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
               children: [
-                _buildNavItem(
-                  context,
-                  Icons.home_filled,
-                  'HOME',
-                  true,
-                  null,
-                ),
+                _buildNavItem(context, Icons.home_filled, 'HOME', true, null),
 
                 _buildNavItem(
                   context,
@@ -390,8 +374,7 @@ class HomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment:
-                MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
             children: [
               Icon(icon, color: iconColor, size: 24),
@@ -451,10 +434,7 @@ class HomeScreen extends StatelessWidget {
           width: 8,
           height: 8,
 
-          decoration: BoxDecoration(
-            color: color,
-            shape: BoxShape.circle,
-          ),
+          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
         ),
 
         const SizedBox(width: 6),
@@ -481,7 +461,7 @@ class HomeScreen extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (route != null) {
-          Navigator.pushNamed(context, route);
+          context.push(route);
         }
       },
 
@@ -490,24 +470,17 @@ class HomeScreen extends StatelessWidget {
 
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 8,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
 
             decoration: BoxDecoration(
-              color: isSelected
-                  ? const Color(0xFFE8F5E9)
-                  : Colors.transparent,
+              color: isSelected ? const Color(0xFFE8F5E9) : Colors.transparent,
 
               borderRadius: BorderRadius.circular(20),
             ),
 
             child: Icon(
               icon,
-              color: isSelected
-                  ? const Color(0xFF2E7D32)
-                  : Colors.grey,
+              color: isSelected ? const Color(0xFF2E7D32) : Colors.grey,
               size: 24,
             ),
           ),
@@ -519,9 +492,7 @@ class HomeScreen extends StatelessWidget {
             style: TextStyle(
               fontSize: 8,
               fontWeight: FontWeight.bold,
-              color: isSelected
-                  ? const Color(0xFF2E7D32)
-                  : Colors.grey,
+              color: isSelected ? const Color(0xFF2E7D32) : Colors.grey,
             ),
           ),
         ],

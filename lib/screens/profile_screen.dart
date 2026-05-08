@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -14,11 +15,16 @@ class ProfilePage extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           'Profile',
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications_outlined, color: Colors.black),
+            onPressed: () {
+              context.push('/notifications');
+            },
+          ),
+        ],
       ),
 
       body: SingleChildScrollView(
@@ -40,11 +46,7 @@ class ProfilePage extends StatelessWidget {
                     radius: 45,
                     backgroundColor: Color(0xFF2E7D32),
 
-                    child: Icon(
-                      Icons.person,
-                      size: 50,
-                      color: Colors.white,
-                    ),
+                    child: Icon(Icons.person, size: 50, color: Colors.white),
                   ),
 
                   const SizedBox(height: 15),
@@ -70,17 +72,11 @@ class ProfilePage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      badge(
-                        'PREMIUM MEMBER',
-                        const Color(0xFF2E7D32),
-                      ),
+                      badge('PREMIUM MEMBER', const Color(0xFF2E7D32)),
 
                       const SizedBox(width: 10),
 
-                      badge(
-                        'VERIFIED FARM',
-                        Colors.blue,
-                      ),
+                      badge('VERIFIED FARM', Colors.blue),
                     ],
                   ),
                 ],
@@ -89,11 +85,7 @@ class ProfilePage extends StatelessWidget {
 
             const SizedBox(height: 25),
 
-            infoCard(
-              'TOTAL ACREAGE',
-              '1,240 Acres',
-              Icons.landscape,
-            ),
+            infoCard('TOTAL ACREAGE', '1,240 Acres', Icons.landscape),
 
             infoCard(
               'MAIN CROPS',
@@ -103,25 +95,13 @@ class ProfilePage extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            settingsTile(
-              'Manage Land Assets',
-              Icons.map,
-            ),
+            settingsTile('Manage Land Assets', Icons.map),
 
-            settingsTile(
-              'Change PIN',
-              Icons.lock,
-            ),
+            settingsTile('Change PIN', Icons.lock),
 
-            settingsTile(
-              'Setup Face ID',
-              Icons.face,
-            ),
+            settingsTile('Setup Face ID', Icons.face),
 
-            settingsTile(
-              'Two-Factor Authentication',
-              Icons.security,
-            ),
+            settingsTile('Two-Factor Authentication', Icons.security),
 
             const SizedBox(height: 25),
 
@@ -155,11 +135,7 @@ class ProfilePage extends StatelessWidget {
                 ),
 
                 onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    '/home',
-                    (route) => false,
-                  );
+                  context.go('/onboarding');
                 },
 
                 child: const Text(
@@ -189,14 +165,10 @@ class ProfilePage extends StatelessWidget {
 
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 12,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
 
             child: Row(
-              mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
               children: [
                 _buildNavItem(
@@ -248,10 +220,7 @@ class ProfilePage extends StatelessWidget {
 
   Widget badge(String text, Color color) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 12,
-        vertical: 6,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
 
       decoration: BoxDecoration(
         color: color,
@@ -269,26 +238,16 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  Widget infoCard(
-    String title,
-    String value,
-    IconData icon,
-  ) {
+  Widget infoCard(String title, String value, IconData icon) {
     return Card(
       color: Colors.white,
 
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
 
       child: ListTile(
         contentPadding: const EdgeInsets.all(16),
 
-        leading: Icon(
-          icon,
-          color: const Color(0xFF2E7D32),
-          size: 30,
-        ),
+        leading: Icon(icon, color: const Color(0xFF2E7D32), size: 30),
 
         title: Text(
           title,
@@ -319,25 +278,14 @@ class ProfilePage extends StatelessWidget {
       color: Colors.white,
       margin: const EdgeInsets.only(bottom: 12),
 
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
 
       child: ListTile(
-        leading: Icon(
-          icon,
-          color: const Color(0xFF2E7D32),
-        ),
+        leading: Icon(icon, color: const Color(0xFF2E7D32)),
 
-        title: Text(
-          title,
-          style: const TextStyle(color: Colors.black),
-        ),
+        title: Text(title, style: const TextStyle(color: Colors.black)),
 
-        trailing: const Icon(
-          Icons.arrow_forward_ios,
-          color: Colors.grey,
-        ),
+        trailing: const Icon(Icons.arrow_forward_ios, color: Colors.grey),
       ),
     );
   }
@@ -352,7 +300,7 @@ class ProfilePage extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (route != null) {
-          Navigator.pushNamed(context, route);
+          context.push(route);
         }
       },
 
@@ -361,24 +309,17 @@ class ProfilePage extends StatelessWidget {
 
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 8,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
 
             decoration: BoxDecoration(
-              color: isSelected
-                  ? const Color(0xFFE8F5E9)
-                  : Colors.transparent,
+              color: isSelected ? const Color(0xFFE8F5E9) : Colors.transparent,
 
               borderRadius: BorderRadius.circular(20),
             ),
 
             child: Icon(
               icon,
-              color: isSelected
-                  ? const Color(0xFF2E7D32)
-                  : Colors.grey,
+              color: isSelected ? const Color(0xFF2E7D32) : Colors.grey,
               size: 24,
             ),
           ),
@@ -390,9 +331,7 @@ class ProfilePage extends StatelessWidget {
             style: TextStyle(
               fontSize: 8,
               fontWeight: FontWeight.bold,
-              color: isSelected
-                  ? const Color(0xFF2E7D32)
-                  : Colors.grey,
+              color: isSelected ? const Color(0xFF2E7D32) : Colors.grey,
             ),
           ),
         ],

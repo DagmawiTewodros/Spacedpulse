@@ -1,19 +1,24 @@
-import 'package:go_router/go_router.dart';
-import '../../screens/splash_screen.dart';
-import '../../screens/home_screen.dart';
+import 'package:flutter/material.dart';
+import 'core/routing/app_router.dart';
 
-final GoRouter appRouter = GoRouter(
-  initialLocation: '/home_screen',
+void main() {
+  runApp(const MyApp());
+}
 
-  routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const SplashScreen(),
-    ),
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-    GoRoute(
-      path: '/home_screen',
-      builder: (context, state) => const HomeScreen(),
-    ),
-  ],
-);
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      title: 'FarmKeeper',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2E7D32)),
+        useMaterial3: true,
+        fontFamily: 'Roboto',
+      ),
+      routerConfig: appRouter,
+    );
+  }
+}
