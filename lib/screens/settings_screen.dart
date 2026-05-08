@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -15,13 +16,14 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color(0xFFF4F7F1),
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: const Color(0xFFF4F7F1),
         elevation: 0,
+        centerTitle: true,
         title: const Text(
           'Settings',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),
       body: SingleChildScrollView(
@@ -32,51 +34,61 @@ class _SettingsPageState extends State<SettingsPage> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.grey.shade900,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
                 children: [
                   const CircleAvatar(
                     radius: 30,
-                    backgroundColor: Colors.green,
+                    backgroundColor: Color(0xFF2E7D32),
                     child: Icon(Icons.person, color: Colors.white),
                   ),
                   const SizedBox(width: 15),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
+                    children: [
+                      const Text(
                         'Thomas Miller',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 4),
-                      Text(
+                      const SizedBox(height: 4),
+                      const Text(
                         'Head of Operations',
-                        style: TextStyle(color: Colors.white70),
+                        style: TextStyle(color: Colors.grey),
                       ),
-                      SizedBox(height: 6),
-                      Chip(
-                        label: Text('PREMIUM PLAN'),
-                        backgroundColor: Colors.green,
-                      )
+                      const SizedBox(height: 6),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 2,
+                        ),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF2E7D32),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const Text(
+                          'PREMIUM PLAN',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
             const SizedBox(height: 25),
             sectionTitle('APP PREFERENCES'),
-            
-            buildListTile(
-              'Language',
-              'Current: English',
-              Icons.language,
-            ),
+
+            buildListTile('Language', 'Current: English', Icons.language),
             const SizedBox(height: 20),
             sectionTitle('ALERTS & NOTIFICATIONS'),
             buildSwitchTile(
@@ -117,17 +129,25 @@ class _SettingsPageState extends State<SettingsPage> {
                     borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                onPressed: () {},
-                child: const Text('Sign Out'),
+                onPressed: () {
+                  context.go('/onboarding');
+                },
+                child: const Text(
+                  'Sign Out',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 20),
             const Center(
               child: Text(
                 'FARMKEEPER V2.4.1 - STABLE',
-                style: TextStyle(color: Colors.white54),
+                style: TextStyle(color: Colors.grey),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -140,8 +160,9 @@ class _SettingsPageState extends State<SettingsPage> {
       child: Text(
         title,
         style: const TextStyle(
-          color: Colors.green,
+          color: Color(0xFF2E7D32),
           fontWeight: FontWeight.bold,
+          fontSize: 12,
           letterSpacing: 1,
         ),
       ),
@@ -155,37 +176,27 @@ class _SettingsPageState extends State<SettingsPage> {
     Function(bool) onChanged,
   ) {
     return Card(
-      color: Colors.grey.shade900,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
+      color: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: SwitchListTile(
-        activeColor: Colors.green,
+        activeColor: const Color(0xFF2E7D32),
         value: value,
         onChanged: onChanged,
-        title: Text(title, style: const TextStyle(color: Colors.white)),
-        subtitle: Text(
-          subtitle,
-          style: const TextStyle(color: Colors.white70),
-        ),
+        title: Text(title, style: const TextStyle(color: Colors.black)),
+        subtitle: Text(subtitle, style: const TextStyle(color: Colors.grey)),
       ),
     );
   }
 
   Widget buildListTile(String title, String subtitle, IconData icon) {
     return Card(
-      color: Colors.grey.shade900,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
+      color: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: ListTile(
-        leading: Icon(icon, color: Colors.green),
-        title: Text(title, style: const TextStyle(color: Colors.white)),
-        subtitle: Text(
-          subtitle,
-          style: const TextStyle(color: Colors.white70),
-        ),
-        trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white54),
+        leading: Icon(icon, color: const Color(0xFF2E7D32)),
+        title: Text(title, style: const TextStyle(color: Colors.black)),
+        subtitle: Text(subtitle, style: const TextStyle(color: Colors.grey)),
+        trailing: const Icon(Icons.arrow_forward_ios, color: Colors.grey),
       ),
     );
   }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class NotificationsPage extends StatelessWidget {
@@ -7,24 +6,23 @@ class NotificationsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color(0xFFF4F7F1),
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: const Color(0xFFF4F7F1),
         elevation: 0,
+        centerTitle: true,
         title: const Text(
           'Notifications',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: Center(
-              child: Text(
-                'Mark all as read',
-                style: TextStyle(color: Colors.green),
-              ),
+        actions: [
+          TextButton(
+            onPressed: () {},
+            child: const Text(
+              'Mark all as read',
+              style: TextStyle(color: Color(0xFF2E7D32)),
             ),
-          )
+          ),
         ],
       ),
       body: ListView(
@@ -69,7 +67,7 @@ class NotificationsPage extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.green.shade900,
+              color: const Color(0xFF2E7D32),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
@@ -80,6 +78,7 @@ class NotificationsPage extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
+                    fontSize: 12,
                   ),
                 ),
                 SizedBox(height: 10),
@@ -98,7 +97,7 @@ class NotificationsPage extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
@@ -112,11 +111,9 @@ class NotificationsPage extends StatelessWidget {
     Color iconColor,
   ) {
     return Card(
-      color: Colors.grey.shade900,
+      color: Colors.white,
       margin: const EdgeInsets.only(bottom: 15),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
       child: ListTile(
         contentPadding: const EdgeInsets.all(16),
         leading: CircleAvatar(
@@ -126,21 +123,15 @@ class NotificationsPage extends StatelessWidget {
         title: Text(
           title,
           style: const TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontWeight: FontWeight.bold,
           ),
         ),
         subtitle: Padding(
           padding: const EdgeInsets.only(top: 8),
-          child: Text(
-            subtitle,
-            style: const TextStyle(color: Colors.white70),
-          ),
+          child: Text(subtitle, style: const TextStyle(color: Colors.grey)),
         ),
-        trailing: Text(
-          time,
-          style: const TextStyle(color: Colors.white54),
-        ),
+        trailing: Text(time, style: const TextStyle(color: Colors.grey)),
       ),
     );
   }

@@ -60,7 +60,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     final data = onboardingData[currentPage];
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF9FBE7),
+      backgroundColor: const Color(0xFFF4F7F1),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
