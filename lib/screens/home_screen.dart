@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'MORNING, JONATHAN',
+                'MORNING, ABEBE BELAY D.',
                 style: TextStyle(
                   color: Color(0xFFB57F4D),
                   fontSize: 12,

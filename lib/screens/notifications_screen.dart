@@ -14,7 +14,7 @@ class NotificationsPage extends StatelessWidget {
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => context.go('/home_screen'),
+          onPressed: () => context.go('/home'),
         ),
         title: const Text(
           'Notifications',

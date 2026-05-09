@@ -33,7 +33,7 @@ class ProfilePage extends StatelessWidget {
                   const SizedBox(height: 15),
 
                   const Text(
-                    'ABEBE BELAY D',
+                    'Abebe Belay D.',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 22,
@@ -44,7 +44,7 @@ class ProfilePage extends StatelessWidget {
                   const SizedBox(height: 5),
 
                   const Text(
-                    'Arsi Bale Zone, Oromia',
+                    'Farm Manager',
                     style: TextStyle(color: Colors.grey),
                   ),
                   const SizedBox(height: 10),

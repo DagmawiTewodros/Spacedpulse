@@ -48,7 +48,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        'Thomas Miller',
+                        'Abebe Belay D.',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 18,
@@ -57,7 +57,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                       const SizedBox(height: 4),
                       const Text(
-                        'Head of Operations',
+                        'Farm Manager',
                         style: TextStyle(color: Colors.grey),
                       ),
                       const SizedBox(height: 6),
