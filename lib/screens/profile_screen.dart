@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import '../core/widgets/confirmation_dialog.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -7,35 +6,9 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF4F7F1),
-
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFF4F7F1),
-        elevation: 0,
-        centerTitle: true,
-        title: const Text(
-          'Profile',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings_outlined, color: Colors.black),
-            onPressed: () {
-              context.push('/settings_screen');
-            },
-          ),
-
-          IconButton(
-            icon: const Icon(Icons.notifications_outlined, color: Colors.black),
-            onPressed: () {
-              context.push('/notifications_screen');
-            },
-          ),
-        ],
-      ),
-
-      body: SingleChildScrollView(
+    return Container(
+      color: const Color(0xFFF4F7F1),
+      child: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
 
         child: Column(

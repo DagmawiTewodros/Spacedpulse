@@ -9,6 +9,38 @@ class OnboardingAnalyticsScreen extends StatelessWidget {
     return Scaffold(
       // Background color matching the soft greenish-beige theme
       backgroundColor: const Color(0xFFF5F6F1),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
+        child: SizedBox(
+          width: double.infinity,
+          height: 56,
+          child: FloatingActionButton.extended(
+            backgroundColor: const Color(0xFF236B27),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(28),
+            ),
+            onPressed: () {
+              context.replace('/splash_screen');
+            },
+            label: const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Get Started',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF1B5E20),
+                  ),
+                ),
+                SizedBox(width: 8),
+                Icon(Icons.arrow_forward, size: 18, color: Color(0xFF1B5E20)),
+              ],
+            ),
+          ),
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -213,50 +245,7 @@ class OnboardingAnalyticsScreen extends StatelessWidget {
                     _buildPageDot(active: true),
                   ],
                 ),
-                const SizedBox(height: 24),
-
-                // Get Started Button
-                SizedBox(
-                  height: 64,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      context.go('/splash_screen');
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF236B27),
-                      foregroundColor: Colors.white,
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(32),
-                      ),
-                    ),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Get Started',
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(width: 8),
-                        Icon(Icons.arrow_forward, size: 20),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-
-                // Footer Text
-                const Text(
-                  'NO CREDIT CARD REQUIRED TO START',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 11,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey,
-                    letterSpacing: 0.8,
-                  ),
-                ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 40),
               ],
             ),
           ),

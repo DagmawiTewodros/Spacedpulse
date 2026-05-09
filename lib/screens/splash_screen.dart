@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (progress >= 1) {
         timer.cancel();
 
-        context.go('/create_account_screen');
+        context.replace('/home');
       }
     });
   }

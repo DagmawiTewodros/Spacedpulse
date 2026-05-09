@@ -6,14 +6,9 @@ class DailyTasksPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF5F5EF),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xFF2E7D32),
-        onPressed: () {},
-        child: const Icon(Icons.add, color: Colors.white),
-      ),
-      body: SafeArea(
+    return Container(
+      color: const Color(0xFFF5F5EF),
+      child: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(16),

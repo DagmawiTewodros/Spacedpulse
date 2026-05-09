@@ -3,10 +3,14 @@ import 'package:go_router/go_router.dart';
 
 class ScaffoldWithNavbar extends StatelessWidget {
   final Widget child;
+  final Widget? floatingActionButton;
+  final PreferredSizeWidget? appBar;
 
   const ScaffoldWithNavbar({
     super.key,
     required this.child,
+    this.floatingActionButton,
+    this.appBar,
   });
 
   @override
@@ -14,7 +18,9 @@ class ScaffoldWithNavbar extends StatelessWidget {
     final String currentRoute = GoRouterState.of(context).uri.path;
 
     return Scaffold(
+      appBar: appBar,
       body: child,
+      floatingActionButton: floatingActionButton,
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
           color: Colors.white,
@@ -33,8 +39,8 @@ class ScaffoldWithNavbar extends StatelessWidget {
                   context,
                   Icons.home_filled,
                   'HOME',
-                  currentRoute == '/home_screen',
-                  '/home_screen',
+                  currentRoute == '/home',
+                  '/home',
                 ),
                 _buildNavItem(
                   context,
