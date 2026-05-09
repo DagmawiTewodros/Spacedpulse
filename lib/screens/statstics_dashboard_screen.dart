@@ -25,7 +25,7 @@ class DashboardPage extends StatelessWidget {
                         const CircleAvatar(
                           radius: 18,
                           backgroundImage: AssetImage(
-                            "assets/images/Background.png",
+                            "assets/images/User profile photo.png",
                           ),
                         ),
 

@@ -23,9 +23,9 @@ class FarmKeeperPage extends StatelessWidget {
                     Row(
                       children: [
                         const CircleAvatar(
-                          radius: 22,
+                          radius: 18,
                           backgroundImage: AssetImage(
-                            'assets/images/Background+Shadow.png',
+                            "assets/images/User profile photo.png",
                           ),
                         ),
 

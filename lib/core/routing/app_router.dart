@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../widgets/scaffold_with_navbar.dart';
+import '../widgets/bottom_navbar.dart';
 import '../../screens/splash_screen.dart';
 import '../../screens/home_screen.dart';
 import '../../screens/onboarding_screen.dart';
@@ -15,6 +15,7 @@ import '../../screens/statstics_dashboard_screen.dart';
 import '../../screens/weather_screen.dart';
 import '../../screens/tasks_screen.dart';
 import '../../screens/calendar_screen.dart';
+import '../../screens/main_app_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/create_account_screen',
@@ -26,8 +27,13 @@ final GoRouter appRouter = GoRouter(
     ),
 
     GoRoute(
+      path: '/main_app',
+      builder: (context, state) => const MainAppScreen(initialIndex: 0),
+    ),
+
+    GoRoute(
       path: '/home',
-      builder: (context, state) => const ScaffoldWithNavbar(child: HomeScreen()),
+      builder: (context, state) => const MainAppScreen(initialIndex: 0),
     ),
 
     GoRoute(
@@ -42,32 +48,7 @@ final GoRouter appRouter = GoRouter(
 
     GoRoute(
       path: '/profile_screen',
-      builder: (context, state) => ScaffoldWithNavbar(
-        child: const ProfilePage(),
-        appBar: AppBar(
-          backgroundColor: const Color(0xFFF4F7F1),
-          elevation: 0,
-          centerTitle: true,
-          title: const Text(
-            'Profile',
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-          ),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.settings_outlined, color: Colors.black),
-              onPressed: () {
-                GoRouter.of(context).push('/settings_screen');
-              },
-            ),
-            IconButton(
-              icon: const Icon(Icons.notifications_outlined, color: Colors.black),
-              onPressed: () {
-                GoRouter.of(context).push('/notifications_screen');
-              },
-            ),
-          ],
-        ),
-      ),
+      builder: (context, state) => const MainAppScreen(initialIndex: 4),
     ),
 
     GoRoute(
@@ -94,24 +75,17 @@ final GoRouter appRouter = GoRouter(
     ),
     GoRoute(
       path: '/statstics_dashboard_screen',
-      builder: (context, state) => const ScaffoldWithNavbar(child: DashboardPage()),
+      builder: (context, state) => const MainAppScreen(initialIndex: 1),
     ),
 
     GoRoute(
       path: '/weather_screen',
-      builder: (context, state) => const ScaffoldWithNavbar(child: WeatherScreen()),
+      builder: (context, state) => const MainAppScreen(initialIndex: 3),
     ),
 
     GoRoute(
       path: '/tasks_screen',
-      builder: (context, state) => ScaffoldWithNavbar(
-        child: const DailyTasksPage(),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: const Color(0xFF2E7D32),
-          onPressed: () {},
-          child: const Icon(Icons.add, color: Colors.white),
-        ),
-      ),
+      builder: (context, state) => const MainAppScreen(initialIndex: 2),
     ),
     GoRoute(
       path: '/calendar_screen',
