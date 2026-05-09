@@ -10,6 +10,7 @@ import '../../screens/onboarding2_screen.dart';
 import '../../screens/login_screen.dart';
 import '../../screens/reminder_screen.dart';
 import '../../screens/crop_detail_screen.dart';
+import '../../screens/crops_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/create_account_screen',
@@ -67,6 +68,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/crop_detail_screen',
       builder: (context, state) => const CropDetailScreen(),
+    ),
+    GoRoute(
+      path: '/crops_screen',
+      builder: (context, state) => const CropsScreen(),
     ),
   ],
 );

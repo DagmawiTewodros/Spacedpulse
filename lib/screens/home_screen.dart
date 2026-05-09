@@ -320,7 +320,7 @@ class HomeScreen extends StatelessWidget {
                   Icons.energy_savings_leaf_outlined,
                   'CROPS',
                   false,
-                  null,
+                  '/crops_screen',
                 ),
 
                 _buildNavItem(
