@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,11 +37,45 @@ class FarmKeeperPage extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            navItem(Icons.menu_book_outlined, "Journal", false),
-            navItem(Icons.task_alt, "Tasks", false),
-            navItem(Icons.dashboard_outlined, "Dashboard", false),
-            navItem(Icons.calendar_today, "Events", true),
-            navItem(Icons.cloud_outlined, "Weather", false),
+            GestureDetector(
+              onTap: () {
+                context.go('/journal_screen');
+              },
+
+              child: navItem(Icons.menu_book_outlined, "Journal", false),
+            ),
+
+            GestureDetector(
+              onTap: () {
+                context.go('/calendar_screen');
+              },
+
+              child: navItem(Icons.eco_outlined, "Events", false),
+            ),
+
+            GestureDetector(
+              onTap: () {
+                context.go('/statstics_dashboard_screen');
+              },
+
+              child: navItem(Icons.bar_chart, "Dashboard", true),
+            ),
+
+            GestureDetector(
+              onTap: () {
+                context.go('/tasks_screen');
+              },
+
+              child: navItem(Icons.inventory_2_outlined, "Tasks", false),
+            ),
+
+            GestureDetector(
+              onTap: () {
+                context.go('/weather_screen');
+              },
+
+              child: navItem(Icons.cloud_outlined, "Weather", false),
+            ),
           ],
         ),
       ),
@@ -78,7 +113,16 @@ class FarmKeeperPage extends StatelessWidget {
                       ],
                     ),
 
-                    const Icon(Icons.notifications_none, size: 28),
+                    GestureDetector(
+                      onTap: () {
+                        context.go('/notifications_screen');
+                      },
+
+                      child: const Icon(
+                        Icons.notifications_none,
+                        color: Color(0xFF215A2A),
+                      ),
+                    ),
                   ],
                 ),
 
