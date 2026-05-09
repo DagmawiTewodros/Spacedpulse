@@ -21,7 +21,7 @@ class HarvestPage extends StatelessWidget {
           padding: EdgeInsets.only(left: 16.0),
           child: CircleAvatar(
             backgroundImage: NetworkImage(
-              'https://placeholder.com/user_avatar',
+              'https://api.dicebear.com/7.x/avataaars/png?seed=Felix&mouth=smile&eyebrows=default&eyes=default&clothing=graphicShirt&clothingColor=3c4d5b',
             ),
           ),
         ),

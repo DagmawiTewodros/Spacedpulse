@@ -49,7 +49,7 @@ class WateringPage extends StatelessWidget {
               border: Border.all(color: Colors.white, width: 2),
               image: const DecorationImage(
                 image: NetworkImage(
-                  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop',
+                  'https://api.dicebear.com/7.x/avataaars/png?seed=Felix&mouth=smile&eyebrows=default&eyes=default&clothing=graphicShirt&clothingColor=3c4d5b',
                 ),
                 fit: BoxFit.cover,
               ),
