@@ -294,63 +294,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(24),
-            topRight: Radius.circular(24),
-          ),
-        ),
-
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-              children: [
-                _buildNavItem(context, Icons.home_filled, 'HOME', true, null),
-
-                _buildNavItem(
-                  context,
-                  Icons.energy_savings_leaf_outlined,
-                  'CROPS',
-                  false,
-                  null,
-                ),
-
-                _buildNavItem(
-                  context,
-                  Icons.assignment_outlined,
-                  'TASKS',
-                  false,
-                  null,
-                ),
-
-                _buildNavItem(
-                  context,
-                  Icons.wb_sunny_outlined,
-                  'WEATHER',
-                  false,
-                  null,
-                ),
-
-                _buildNavItem(
-                  context,
-                  Icons.person_outline,
-                  'PROFILE',
-                  false,
-                  '/profile_screen',
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
     );
   }
 
@@ -448,55 +391,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildNavItem(
-    BuildContext context,
-    IconData icon,
-    String label,
-    bool isSelected,
-    String? route,
-  ) {
-    return GestureDetector(
-      onTap: () {
-        if (route != null) {
-          context.push(route);
-        }
-      },
-
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-
-            decoration: BoxDecoration(
-              color: isSelected ? const Color(0xFFE8F5E9) : Colors.transparent,
-
-              borderRadius: BorderRadius.circular(20),
-            ),
-
-            child: Icon(
-              icon,
-              color: isSelected ? const Color(0xFF2E7D32) : Colors.grey,
-              size: 24,
-            ),
-          ),
-
-          const SizedBox(height: 4),
-
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 8,
-              fontWeight: FontWeight.bold,
-              color: isSelected ? const Color(0xFF2E7D32) : Colors.grey,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

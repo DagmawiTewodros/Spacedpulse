@@ -1,22 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: DashboardPage(),
-    );
-  }
-}
-
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
 
@@ -24,63 +8,6 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F5EF),
-
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(26),
-            topRight: Radius.circular(26),
-          ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-          children: [
-            GestureDetector(
-              onTap: () {
-                context.go('/journal_screen');
-              },
-
-              child: navItem(Icons.menu_book_outlined, "Journal", false),
-            ),
-
-            GestureDetector(
-              onTap: () {
-                context.go('/calendar_screen');
-              },
-
-              child: navItem(Icons.eco_outlined, "Events", false),
-            ),
-
-            GestureDetector(
-              onTap: () {
-                context.go('/statstics_dashboard_screen');
-              },
-
-              child: navItem(Icons.bar_chart, "Dashboard", true),
-            ),
-
-            GestureDetector(
-              onTap: () {
-                context.go('/tasks_screen');
-              },
-
-              child: navItem(Icons.inventory_2_outlined, "Tasks", false),
-            ),
-
-            GestureDetector(
-              onTap: () {
-                context.go('/weather_screen');
-              },
-
-              child: navItem(Icons.cloud_outlined, "Weather", false),
-            ),
-          ],
-        ),
-      ),
-
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../core/widgets/confirmation_dialog.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -9,7 +10,6 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  // bool darkMode = true;
   bool pushNotifications = true;
   bool weatherAlerts = true;
 
@@ -130,7 +130,12 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                 ),
                 onPressed: () {
-                  context.go('/onboarding');
+                  showDialog(
+                    context: context,
+                    builder: (context) => const ConfirmationDialog.signOut(
+                      route: '/create_account_screen',
+                    ),
+                  );
                 },
                 child: const Text(
                   'Sign Out',

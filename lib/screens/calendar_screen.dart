@@ -1,22 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: FarmKeeperPage(),
-    );
-  }
-}
-
 class FarmKeeperPage extends StatelessWidget {
   const FarmKeeperPage({super.key});
 
@@ -24,62 +8,6 @@ class FarmKeeperPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F5F0),
-
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(28),
-            topRight: Radius.circular(28),
-          ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            GestureDetector(
-              onTap: () {
-                context.go('/journal_screen');
-              },
-
-              child: navItem(Icons.menu_book_outlined, "Journal", false),
-            ),
-
-            GestureDetector(
-              onTap: () {
-                context.go('/calendar_screen');
-              },
-
-              child: navItem(Icons.eco_outlined, "Events", false),
-            ),
-
-            GestureDetector(
-              onTap: () {
-                context.go('/statstics_dashboard_screen');
-              },
-
-              child: navItem(Icons.bar_chart, "Dashboard", true),
-            ),
-
-            GestureDetector(
-              onTap: () {
-                context.go('/tasks_screen');
-              },
-
-              child: navItem(Icons.inventory_2_outlined, "Tasks", false),
-            ),
-
-            GestureDetector(
-              onTap: () {
-                context.go('/weather_screen');
-              },
-
-              child: navItem(Icons.cloud_outlined, "Weather", false),
-            ),
-          ],
-        ),
-      ),
-
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -492,35 +420,6 @@ class FarmKeeperPage extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  static Widget navItem(IconData icon, String label, bool active) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          padding: const EdgeInsets.all(10),
-
-          decoration: BoxDecoration(
-            color: active ? const Color(0xFF1E6A1F) : Colors.transparent,
-
-            borderRadius: BorderRadius.circular(14),
-          ),
-
-          child: Icon(icon, color: active ? Colors.white : Colors.grey),
-        ),
-
-        const SizedBox(height: 5),
-
-        Text(
-          label,
-          style: TextStyle(
-            color: active ? const Color(0xFF1E6A1F) : Colors.grey,
-            fontSize: 12,
-          ),
-        ),
-      ],
     );
   }
 }
