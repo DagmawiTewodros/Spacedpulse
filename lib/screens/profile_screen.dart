@@ -1,33 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import '../core/widgets/confirmation_dialog.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF4F7F1),
-
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFF4F7F1),
-        elevation: 0,
-        centerTitle: true,
-        title: const Text(
-          'Profile',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications_outlined, color: Colors.black),
-            onPressed: () {
-              context.push('/notifications_screen');
-            },
-          ),
-        ],
-      ),
-
-      body: SingleChildScrollView(
+    return Container(
+      color: const Color(0xFFF4F7F1),
+      child: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
 
         child: Column(
@@ -52,7 +33,7 @@ class ProfilePage extends StatelessWidget {
                   const SizedBox(height: 15),
 
                   const Text(
-                    'ABEBE BELAY D',
+                    'Abebe Belay D.',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 22,
@@ -63,12 +44,10 @@ class ProfilePage extends StatelessWidget {
                   const SizedBox(height: 5),
 
                   const Text(
-                    'Arsi Bale Zone, Oromia',
+                    'Farm Manager',
                     style: TextStyle(color: Colors.grey),
                   ),
-
                   const SizedBox(height: 10),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -95,6 +74,14 @@ class ProfilePage extends StatelessWidget {
 
             const SizedBox(height: 20),
 
+            // ListView.builder(
+            //   itemCount: 2, // settingsData.lenght,
+            //   shrinkWrap: true,
+            //   itemBuilder: (context, i) {
+            //     // final settingData = settingsData[i];
+            //     return settingsTile('Manage Land Assets', Icons.map);
+            //   },
+            // ),
             settingsTile('Manage Land Assets', Icons.map),
 
             settingsTile('Change PIN', Icons.lock),
@@ -135,7 +122,12 @@ class ProfilePage extends StatelessWidget {
                 ),
 
                 onPressed: () {
-                  context.go('/onboarding_screen');
+                  showDialog(
+                    context: context,
+                    builder: (context) => const ConfirmationDialog.signOut(
+                      route: '/create_account_screen',
+                    ),
+                  );
                 },
 
                 child: const Text(
@@ -150,69 +142,6 @@ class ProfilePage extends StatelessWidget {
 
             const SizedBox(height: 20),
           ],
-        ),
-      ),
-
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(24),
-            topRight: Radius.circular(24),
-          ),
-        ),
-
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-              children: [
-                _buildNavItem(
-                  context,
-                  Icons.home_filled,
-                  'HOME',
-                  false,
-                  '/home_screen',
-                ),
-
-                _buildNavItem(
-                  context,
-                  Icons.energy_savings_leaf_outlined,
-                  'CROPS',
-                  false,
-                  null,
-                ),
-
-                _buildNavItem(
-                  context,
-                  Icons.assignment_outlined,
-                  'TASKS',
-                  false,
-                  null,
-                ),
-
-                _buildNavItem(
-                  context,
-                  Icons.wb_sunny_outlined,
-                  'WEATHER',
-                  false,
-                  null,
-                ),
-
-                _buildNavItem(
-                  context,
-                  Icons.person_outline,
-                  'PROFILE',
-                  true,
-                  '/profile_screen',
-                ),
-              ],
-            ),
-          ),
         ),
       ),
     );
@@ -286,55 +215,6 @@ class ProfilePage extends StatelessWidget {
         title: Text(title, style: const TextStyle(color: Colors.black)),
 
         trailing: const Icon(Icons.arrow_forward_ios, color: Colors.grey),
-      ),
-    );
-  }
-
-  Widget _buildNavItem(
-    BuildContext context,
-    IconData icon,
-    String label,
-    bool isSelected,
-    String? route,
-  ) {
-    return GestureDetector(
-      onTap: () {
-        if (route != null) {
-          context.push(route);
-        }
-      },
-
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-
-            decoration: BoxDecoration(
-              color: isSelected ? const Color(0xFFE8F5E9) : Colors.transparent,
-
-              borderRadius: BorderRadius.circular(20),
-            ),
-
-            child: Icon(
-              icon,
-              color: isSelected ? const Color(0xFF2E7D32) : Colors.grey,
-              size: 24,
-            ),
-          ),
-
-          const SizedBox(height: 4),
-
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 8,
-              fontWeight: FontWeight.bold,
-              color: isSelected ? const Color(0xFF2E7D32) : Colors.grey,
-            ),
-          ),
-        ],
       ),
     );
   }

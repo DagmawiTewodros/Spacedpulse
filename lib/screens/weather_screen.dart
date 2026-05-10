@@ -1,94 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: WeatherScreen(),
-    );
-  }
-}
-
 class WeatherScreen extends StatelessWidget {
   const WeatherScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF4F5F0),
-
-      // ================= BOTTOM NAVIGATION =================
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(32),
-            topRight: Radius.circular(32),
-          ),
-        ),
-
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            GestureDetector(
-              onTap: () {
-                context.go('/journal_screen');
-              },
-
-              child: navItem(Icons.menu_book_outlined, "JOURNAL", false),
-            ),
-
-            GestureDetector(
-              onTap: () {
-                context.go('/tasks_screen');
-              },
-
-              child: navItem(Icons.checklist_rounded, "TASKS", false),
-            ),
-
-            GestureDetector(
-              onTap: () {
-                context.go('/statstics_dashboard_screen');
-              },
-
-              child: navItem(
-                Icons.insert_chart_outlined_rounded,
-                "DASHBOARD",
-                false,
-              ),
-            ),
-
-            GestureDetector(
-              onTap: () {
-                context.go('/calendar_screen');
-              },
-
-              child: navItem(Icons.calendar_month_outlined, "EVENTS", false),
-            ),
-
-            GestureDetector(
-              onTap: () {
-                context.go('/weather_screen');
-              },
-
-              child: navItem(Icons.cloud_rounded, "WEATHER", true),
-            ),
-          ],
-        ),
-      ),
-
-      // ================= BODY =================
-      body: SafeArea(
+    return Container(
+      color: const Color(0xFFF4F5F0),
+      child: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -103,9 +23,9 @@ class WeatherScreen extends StatelessWidget {
                     Row(
                       children: [
                         const CircleAvatar(
-                          radius: 22,
+                          radius: 18,
                           backgroundImage: AssetImage(
-                            'assets/images/Background+Shadow.png',
+                            "assets/images/User profile photo.png",
                           ),
                         ),
 
@@ -604,50 +524,6 @@ class WeatherScreen extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  // ================= NAV ITEM =================
-  static Widget navItem(IconData icon, String label, bool active) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          padding: const EdgeInsets.all(16),
-
-          decoration: BoxDecoration(
-            color: active ? const Color(0xFF3D8B2F) : Colors.transparent,
-            shape: BoxShape.circle,
-
-            boxShadow: active
-                ? [
-                    const BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 10,
-                      offset: Offset(0, 4),
-                    ),
-                  ]
-                : [],
-          ),
-
-          child: Icon(
-            icon,
-            size: 24,
-            color: active ? Colors.white : const Color(0xFF7B736D),
-          ),
-        ),
-
-        const SizedBox(height: 6),
-
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 11,
-            fontWeight: FontWeight.w700,
-            color: active ? const Color(0xFF3D8B2F) : const Color(0xFF7B736D),
-          ),
-        ),
-      ],
     );
   }
 

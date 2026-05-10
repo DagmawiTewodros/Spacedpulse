@@ -7,7 +7,6 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Matching the soft greenish-beige theme [cite: 50, 51]
       backgroundColor: const Color(0xFFF5F6F1),
       body: SafeArea(
         child: Center(
@@ -17,7 +16,6 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  // Brand Icon and Name
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -28,7 +26,7 @@ class LoginScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: const Icon(
-                          Icons.eco, // Placeholder for the leaf logo
+                          Icons.eco,
                           color: Colors.white,
                           size: 28,
                         ),
@@ -46,7 +44,6 @@ class LoginScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 48),
 
-                  // Login Heading
                   const Text(
                     'Login to your\ndashboard',
                     style: TextStyle(
@@ -59,14 +56,10 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(height: 12),
                   const Text(
                     'Enter your credentials to access your harvest data.',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.black54,
-                    ),
+                    style: TextStyle(fontSize: 15, color: Colors.black54),
                   ),
                   const SizedBox(height: 40),
 
-                  // EMAIL ADDRESS Field
                   _buildLoginInputField(
                     label: 'EMAIL ADDRESS',
                     hint: 'name@farmkeeper.com',
@@ -74,7 +67,6 @@ class LoginScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
 
-                  // PASSWORD Field with "Forgot Password?"
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -108,22 +100,31 @@ class LoginScreen extends StatelessWidget {
                         obscureText: true,
                         decoration: InputDecoration(
                           hintText: '........',
-                          prefixIcon: Icon(Icons.lock_outline, color: Colors.grey.shade400, size: 20),
-                          suffixIcon: Icon(Icons.visibility_outlined, color: Colors.grey.shade400, size: 20),
+                          prefixIcon: Icon(
+                            Icons.lock_outline,
+                            color: Colors.grey.shade400,
+                            size: 20,
+                          ),
+                          suffixIcon: Icon(
+                            Icons.visibility_outlined,
+                            color: Colors.grey.shade400,
+                            size: 20,
+                          ),
                           filled: true,
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(16),
                             borderSide: BorderSide.none,
                           ),
-                          contentPadding: const EdgeInsets.symmetric(vertical: 18),
+                          contentPadding: const EdgeInsets.symmetric(
+                            vertical: 18,
+                          ),
                         ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 32),
 
-                  // Login Button
                   SizedBox(
                     height: 60,
                     child: ElevatedButton(
@@ -144,7 +145,10 @@ class LoginScreen extends StatelessWidget {
                         children: [
                           Text(
                             'Login',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           SizedBox(width: 8),
                           Icon(Icons.arrow_forward, size: 20),
@@ -154,7 +158,6 @@ class LoginScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 32),
 
-                  // Divider
                   Row(
                     children: [
                       Expanded(child: Divider(color: Colors.grey.shade300)),
@@ -162,7 +165,11 @@ class LoginScreen extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: 16),
                         child: Text(
                           'OR CONTINUE WITH',
-                          style: TextStyle(fontSize: 10, color: Colors.grey, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                       Expanded(child: Divider(color: Colors.grey.shade300)),
@@ -170,17 +177,17 @@ class LoginScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
 
-                  // Social Buttons
                   Row(
                     children: [
-                      Expanded(child: _buildSocialButton('Google', Icons.g_mobiledata)),
+                      Expanded(
+                        child: _buildSocialButton('Google', Icons.g_mobiledata),
+                      ),
                       const SizedBox(width: 16),
                       Expanded(child: _buildSocialButton('Apple', Icons.apple)),
                     ],
                   ),
                   const SizedBox(height: 48),
 
-                  // New User Link
                   Center(
                     child: GestureDetector(
                       onTap: () {
@@ -213,7 +220,11 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildLoginInputField({required String label, required String hint, required IconData icon}) {
+  Widget _buildLoginInputField({
+    required String label,
+    required String hint,
+    required IconData icon,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -257,7 +268,10 @@ class LoginScreen extends StatelessWidget {
         children: [
           Icon(icon, color: Colors.black, size: 24),
           const SizedBox(width: 8),
-          Text(text, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+          Text(
+            text,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+          ),
         ],
       ),
     );

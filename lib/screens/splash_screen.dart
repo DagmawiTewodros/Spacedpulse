@@ -12,12 +12,10 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   double progress = 0;
 
-
   @override
   void initState() {
     super.initState();
 
-    // Animate loader
     Timer.periodic(const Duration(milliseconds: 50), (timer) {
       setState(() {
         progress += 0.02;
@@ -26,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (progress >= 1) {
         timer.cancel();
 
-        context.go('/profile_screen');
+        context.replace('/home');
       }
     });
   }
@@ -40,11 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
-              Color(0xFFE8F5E9),
-              Color(0xFFF1F8E9),
-              Color(0xFFF9FBE7),
-            ],
+            colors: [Color(0xFFE8F5E9), Color(0xFFF1F8E9), Color(0xFFF9FBE7)],
           ),
         ),
         child: SafeArea(
@@ -53,7 +47,6 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               const Spacer(flex: 2),
 
-              // Main circular image
               Container(
                 width: 250,
                 height: 250,
@@ -68,7 +61,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
               const SizedBox(height: 20),
 
-              // Logo icon
               Transform.scale(
                 scaleX: -1,
                 child: const Icon(
@@ -80,7 +72,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
               const SizedBox(height: 10),
 
-              // App Name
               const Text(
                 'FarmKeeper',
                 style: TextStyle(
@@ -93,7 +84,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
               const SizedBox(height: 16),
 
-              // Tagline
               const Text(
                 'Precision technology for the\nmodern harvest.',
                 textAlign: TextAlign.center,
@@ -127,7 +117,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
               const SizedBox(height: 24),
 
-              // Status text
               const Text(
                 'INITIALIZING FIELD SENSORS',
                 style: TextStyle(
@@ -139,7 +128,6 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
 
               const SizedBox(height: 8),
-              // Three dots
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -163,10 +151,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Container(
       width: 6,
       height: 6,
-      decoration: BoxDecoration(
-        color: color,
-        shape: BoxShape.circle,
-      ),
+      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
     );
   }
 }

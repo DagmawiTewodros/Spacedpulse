@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF4F7F1),
-
-      body: SafeArea(
+    return Container(
+      color: const Color(0xFFF4F7F1),
+      child: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20.0),
 
@@ -17,7 +15,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'MORNING, JONATHAN',
+                'MORNING, ABEBE BELAY D.',
                 style: TextStyle(
                   color: Color(0xFFB57F4D),
                   fontSize: 12,
@@ -448,55 +446,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildNavItem(
-    BuildContext context,
-    IconData icon,
-    String label,
-    bool isSelected,
-    String? route,
-  ) {
-    return GestureDetector(
-      onTap: () {
-        if (route != null) {
-          context.push(route);
-        }
-      },
-
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-
-            decoration: BoxDecoration(
-              color: isSelected ? const Color(0xFFE8F5E9) : Colors.transparent,
-
-              borderRadius: BorderRadius.circular(20),
-            ),
-
-            child: Icon(
-              icon,
-              color: isSelected ? const Color(0xFF2E7D32) : Colors.grey,
-              size: 24,
-            ),
-          ),
-
-          const SizedBox(height: 4),
-
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 8,
-              fontWeight: FontWeight.bold,
-              color: isSelected ? const Color(0xFF2E7D32) : Colors.grey,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

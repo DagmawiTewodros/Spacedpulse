@@ -47,12 +47,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         currentPage++;
       });
     } else {
-      context.go('/home_screen');
+      context.go('/main_app');
     }
   }
 
   void skip() {
-    context.go('/home_screen');
+    context.go('/main_app');
   }
 
   @override
@@ -67,7 +67,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           child: Column(
             children: [
               const SizedBox(height: 40),
-              // Image with overlapping icon
               Stack(
                 alignment: Alignment.bottomRight,
                 children: [
@@ -118,7 +117,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ],
               ),
               const SizedBox(height: 40),
-              // Title
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
@@ -138,7 +136,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              // Description
               Text(
                 data['description'] as String,
                 textAlign: TextAlign.center,
@@ -149,7 +146,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
               const Spacer(),
-              // Page indicators
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
@@ -168,7 +164,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
               const SizedBox(height: 30),
-              // Next button
               SizedBox(
                 width: double.infinity,
                 height: 56,
@@ -201,7 +196,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              // Skip button
               TextButton(
                 onPressed: skip,
                 child: const Text(

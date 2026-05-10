@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class NotificationsPage extends StatelessWidget {
   const NotificationsPage({super.key});
@@ -11,6 +12,10 @@ class NotificationsPage extends StatelessWidget {
         backgroundColor: const Color(0xFFF4F7F1),
         elevation: 0,
         centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => context.go('/main_app'),
+        ),
         title: const Text(
           'Notifications',
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),

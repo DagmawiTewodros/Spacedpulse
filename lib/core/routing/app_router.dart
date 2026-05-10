@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../widgets/bottom_navbar.dart';
 import '../../screens/splash_screen.dart';
 import '../../screens/home_screen.dart';
 import '../../screens/onboarding_screen.dart';
@@ -14,6 +16,7 @@ import '../../screens/statstics_dashboard_screen.dart';
 import '../../screens/weather_screen.dart';
 import '../../screens/tasks_screen.dart';
 import '../../screens/calendar_screen.dart';
+import '../../screens/main_app_screen.dart';
 
 // NEW PAGES
 import '../../screens/add_crop.dart';
@@ -31,8 +34,13 @@ final GoRouter appRouter = GoRouter(
     ),
 
     GoRoute(
-      path: '/home_screen',
-      builder: (context, state) => const HomeScreen(),
+      path: '/main_app',
+      builder: (context, state) => const MainAppScreen(initialIndex: 0),
+    ),
+
+    GoRoute(
+      path: '/home',
+      builder: (context, state) => const MainAppScreen(initialIndex: 0),
     ),
 
     GoRoute(
@@ -47,7 +55,7 @@ final GoRouter appRouter = GoRouter(
 
     GoRoute(
       path: '/profile_screen',
-      builder: (context, state) => const ProfilePage(),
+      builder: (context, state) => const MainAppScreen(initialIndex: 4),
     ),
 
     GoRoute(
@@ -77,17 +85,17 @@ final GoRouter appRouter = GoRouter(
 
     GoRoute(
       path: '/statstics_dashboard_screen',
-      builder: (context, state) => const DashboardPage(),
+      builder: (context, state) => const MainAppScreen(initialIndex: 1),
     ),
 
     GoRoute(
       path: '/weather_screen',
-      builder: (context, state) => const WeatherScreen(),
+      builder: (context, state) => const MainAppScreen(initialIndex: 3),
     ),
 
     GoRoute(
       path: '/tasks_screen',
-      builder: (context, state) => const DailyTasksPage(),
+      builder: (context, state) => const MainAppScreen(initialIndex: 2),
     ),
 
     GoRoute(
