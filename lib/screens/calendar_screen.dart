@@ -42,7 +42,7 @@ class FarmKeeperPage extends StatelessWidget {
 
                     GestureDetector(
                       onTap: () {
-                        context.go('/notifications_screen');
+                        context.push('/notifications_screen');
                       },
 
                       child: const Icon(
