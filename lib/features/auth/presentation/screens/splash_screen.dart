@@ -32,11 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> _navigateAfterSplash() async {
     const bool isFirstLaunch = true;
 
-    if (isFirstLaunch) {
       context.replace('/onboarding_screen');
-    } else {
-      context.replace('/home');
-    }
   }
 
   @override

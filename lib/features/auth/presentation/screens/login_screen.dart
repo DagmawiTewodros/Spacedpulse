@@ -2,10 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/theme/themes.dart';
 
-class LoginScreen extends StatelessWidget {
-  static final _formKey = GlobalKey<FormState>();
-
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  bool _showPassword = false;
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +84,7 @@ class LoginScreen extends StatelessWidget {
                     label: 'EMAIL ADDRESS',
                     hint: 'name@farmkeeper.com',
                     icon: Icons.mail_outline,
+                    controller: _emailController,
                     validator: (value) {
                       if (value == null || value.isEmpty) return 'Email is required';
                       if (!value.contains('@') || !value.contains('.')) 
@@ -108,7 +124,8 @@ class LoginScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       TextFormField(
-                        obscureText: true,
+                        controller: _passwordController,
+                        obscureText: !_showPassword,
                         validator: (value) {
                           if (value == null || value.isEmpty) return 'Password is required';
                           if (value.length < 6) return 'Minimum 6 characters required';
@@ -121,10 +138,17 @@ class LoginScreen extends StatelessWidget {
                             color: Colors.grey.shade400,
                             size: 20,
                           ),
-                          suffixIcon: Icon(
-                            Icons.visibility_outlined,
-                            color: Colors.grey.shade400,
-                            size: 20,
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _showPassword = !_showPassword;
+                              });
+                            },
+                            child: Icon(
+                              _showPassword ? Icons.visibility : Icons.visibility_off_outlined,
+                              color: Colors.grey.shade400,
+                              size: 20,
+                            ),
                           ),
                           filled: true,
                           fillColor: Colors.white,
@@ -135,6 +159,7 @@ class LoginScreen extends StatelessWidget {
                           contentPadding: const EdgeInsets.symmetric(
                             vertical: 18,
                           ),
+                          errorMaxLines: 2,
                         ),
                       ),
                     ],
@@ -243,6 +268,7 @@ class LoginScreen extends StatelessWidget {
     required String label,
     required String hint,
     required IconData icon,
+    required TextEditingController controller,
     String? Function(String?)? validator,
   }) {
     return Column(
@@ -259,6 +285,7 @@ class LoginScreen extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         TextFormField(
+          controller: controller,
           validator: validator,
           decoration: InputDecoration(
             hintText: hint,
@@ -271,6 +298,7 @@ class LoginScreen extends StatelessWidget {
               borderSide: BorderSide.none,
             ),
             contentPadding: const EdgeInsets.symmetric(vertical: 18),
+            errorMaxLines: 2,
           ),
         ),
       ],

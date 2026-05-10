@@ -1,8 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class CreateAccountScreen extends StatelessWidget {
+class CreateAccountScreen extends StatefulWidget {
   const CreateAccountScreen({super.key});
+
+  @override
+  State<CreateAccountScreen> createState() => _CreateAccountScreenState();
+}
+
+class _CreateAccountScreenState extends State<CreateAccountScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +32,11 @@ class CreateAccountScreen extends StatelessWidget {
           child: Padding(
             // Added horizontal padding for the entire screen content
             padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
                 const SizedBox(height: 10),
                 
                 // Top Header Titles
@@ -68,6 +88,12 @@ class CreateAccountScreen extends StatelessWidget {
                   label: 'NAME',
                   hint: 'Full name',
                   icon: Icons.person_outline,
+                  controller: _nameController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) return 'Name is required';
+                    if (value.length < 2) return 'Name must be at least 2 characters';
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 16),
                 
@@ -76,6 +102,13 @@ class CreateAccountScreen extends StatelessWidget {
                   label: 'EMAIL',
                   hint: 'your@farm.com',
                   icon: Icons.mail_outline,
+                  controller: _emailController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) return 'Email is required';
+                    if (!value.contains('@') || !value.contains('.')) 
+                      return 'Enter a valid email address';
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 16),
                 
@@ -84,7 +117,13 @@ class CreateAccountScreen extends StatelessWidget {
                   label: 'PASSWORD',
                   hint: '........',
                   icon: Icons.lock_outline,
+                  controller: _passwordController,
                   isPassword: true,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) return 'Password is required';
+                    if (value.length < 6) return 'Password must be at least 6 characters';
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 32),
                 
@@ -93,7 +132,9 @@ class CreateAccountScreen extends StatelessWidget {
                   height: 56,
                   child: ElevatedButton(
                   onPressed: () {
-                    context.go('/onboarding2_screen');
+                    if (_formKey.currentState?.validate() ?? false) {
+                      context.go('/onboarding2_screen');
+                    }
                   },
                      style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF2E7D32), // Match button green
@@ -197,6 +238,7 @@ class CreateAccountScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
               ],
+              ),
             ),
           ),
         ),
@@ -209,7 +251,9 @@ class CreateAccountScreen extends StatelessWidget {
     required String label,
     required String hint,
     required IconData icon,
+    required TextEditingController controller,
     bool isPassword = false,
+    String? Function(String?)? validator,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -227,8 +271,10 @@ class CreateAccountScreen extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        TextField(
+        TextFormField(
+          controller: controller,
           obscureText: isPassword,
+          validator: validator,
           decoration: InputDecoration(
             hintText: hint,
             hintStyle: TextStyle(color: Colors.grey.shade500, fontSize: 14),
@@ -240,6 +286,7 @@ class CreateAccountScreen extends StatelessWidget {
               borderSide: BorderSide.none,
             ),
             contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            errorMaxLines: 2,
           ),
         ),
       ],
