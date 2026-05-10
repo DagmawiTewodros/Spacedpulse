@@ -292,6 +292,63 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          color: Colors.white,
+
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(24),
+            topRight: Radius.circular(24),
+          ),
+        ),
+
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+              children: [
+                _buildNavItem(context, Icons.home_filled, 'HOME', true, null),
+
+                _buildNavItem(
+                  context,
+                  Icons.energy_savings_leaf_outlined,
+                  'CROPS',
+                  false,
+                  '/harvest_page',
+                ),
+
+                _buildNavItem(
+                  context,
+                  Icons.assignment_outlined,
+                  'TASKS',
+                  false,
+                  null,
+                ),
+
+                _buildNavItem(
+                  context,
+                  Icons.wb_sunny_outlined,
+                  'WEATHER',
+                  false,
+                  null,
+                ),
+
+                _buildNavItem(
+                  context,
+                  Icons.person_outline,
+                  'PROFILE',
+                  false,
+                  '/profile_screen',
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 

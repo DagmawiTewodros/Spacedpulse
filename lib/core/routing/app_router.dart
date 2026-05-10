@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 import '../widgets/bottom_navbar.dart';
 import '../../screens/splash_screen.dart';
 import '../../screens/home_screen.dart';
@@ -16,6 +17,12 @@ import '../../screens/weather_screen.dart';
 import '../../screens/tasks_screen.dart';
 import '../../screens/calendar_screen.dart';
 import '../../screens/main_app_screen.dart';
+
+// NEW PAGES
+import '../../screens/add_crop.dart';
+import '../../screens/crop_journal_page.dart';
+import '../../screens/harvest_page.dart';
+import '../../screens/watering_page.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: '/create_account_screen',
@@ -65,14 +72,17 @@ final GoRouter appRouter = GoRouter(
       path: '/onboarding2_screen',
       builder: (context, state) => const OnboardingAnalyticsScreen(),
     ),
+
     GoRoute(
       path: '/login_screen',
       builder: (context, state) => const LoginScreen(),
     ),
+
     GoRoute(
       path: '/reminder_screen',
       builder: (context, state) => const WateringReminderScreen(),
     ),
+
     GoRoute(
       path: '/statstics_dashboard_screen',
       builder: (context, state) => const MainAppScreen(initialIndex: 1),
@@ -87,9 +97,31 @@ final GoRouter appRouter = GoRouter(
       path: '/tasks_screen',
       builder: (context, state) => const MainAppScreen(initialIndex: 2),
     ),
+
     GoRoute(
       path: '/calendar_screen',
       builder: (context, state) => const FarmKeeperPage(),
+    ),
+
+    // NEW ROUTES
+    GoRoute(
+      path: '/add_crop',
+      builder: (context, state) => const AddCropPage(),
+    ),
+
+    GoRoute(
+      path: '/crop_journal_page',
+      builder: (context, state) => const CropJournalPage(),
+    ),
+
+    GoRoute(
+      path: '/harvest_page',
+      builder: (context, state) => const HarvestPage(),
+    ),
+
+    GoRoute(
+      path: '/watering_page',
+      builder: (context, state) => const WateringPage(),
     ),
   ],
 );
