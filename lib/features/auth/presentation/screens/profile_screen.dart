@@ -64,7 +64,7 @@ class ProfilePage extends StatelessWidget {
 
             const SizedBox(height: 25),
 
-            infoCard('TOTAL ACREAGE', '1,240 Acres', Icons.landscape),
+            infoCard('TOTAL ACREAGE', '80,400 KM²', Icons.landscape),
 
             infoCard(
               'MAIN CROPS',
