@@ -18,7 +18,6 @@ import '../../screens/tasks_screen.dart';
 import '../../screens/calendar_screen.dart';
 import '../../screens/main_app_screen.dart';
 
-// NEW PAGES
 import '../../screens/add_crop.dart';
 import '../../screens/crop_journal_page.dart';
 import '../../screens/harvest_page.dart';
@@ -103,7 +102,6 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => const FarmKeeperPage(),
     ),
 
-    // NEW ROUTES
     GoRoute(
       path: '/add_crop',
       builder: (context, state) => const AddCropPage(),

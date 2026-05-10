@@ -7,7 +7,6 @@ class WateringReminderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Matching the soft greenish-beige theme [cite: 61]
       backgroundColor: const Color(0xFFF5F6F1),
       body: SafeArea(
         child: Padding(
@@ -15,7 +14,6 @@ class WateringReminderScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // Header 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -46,10 +44,8 @@ class WateringReminderScreen extends StatelessWidget {
               ),
               const SizedBox(height: 32),
 
-              // Top Grid: Watering Reminder and Alerts [cite: 53, 55]
               Row(
                 children: [
-                  // Watering Reminder Card [cite: 53, 54]
                   Expanded(
                     flex: 2,
                     child: Container(
@@ -82,7 +78,6 @@ class WateringReminderScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 16),
-                  // Alerts ON Card [cite: 55]
                   Expanded(
                     child: Container(
                       height: 180,
@@ -114,7 +109,6 @@ class WateringReminderScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-              // Next Irrigation Cycle Card [cite: 58, 59]
               Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
@@ -123,7 +117,6 @@ class WateringReminderScreen extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    // Date Widget [cite: 56, 57]
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                       decoration: BoxDecoration(
@@ -160,7 +153,6 @@ class WateringReminderScreen extends StatelessWidget {
               ),
               const SizedBox(height: 48),
 
-              // Text Content [cite: 60, 61]
               const Center(
                 child: Text(
                   'Never Miss\na Task',
@@ -176,7 +168,6 @@ class WateringReminderScreen extends StatelessWidget {
               ),
               const SizedBox(height: 40),
 
-              // Features Row [cite: 64, 65, 66]
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -187,7 +178,6 @@ class WateringReminderScreen extends StatelessWidget {
               ),
               const Spacer(),
 
-              // Navigation Buttons [cite: 67, 68]
               Row(
                 children: [
                   Expanded(
@@ -195,7 +185,7 @@ class WateringReminderScreen extends StatelessWidget {
                       height: 56,
                       child: ElevatedButton(
                         onPressed: () {
-                          context.go('/home');
+                          context.pop();
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF81D483),
@@ -229,7 +219,6 @@ class WateringReminderScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               
-              // Skip Onboarding [cite: 69]
               TextButton(
                 onPressed: () {},
                 child: const Text(

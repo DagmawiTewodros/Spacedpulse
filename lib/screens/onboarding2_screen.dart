@@ -7,7 +7,6 @@ class OnboardingAnalyticsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Background color matching the soft greenish-beige theme
       backgroundColor: const Color(0xFFF5F6F1),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Padding(
@@ -48,7 +47,6 @@ class OnboardingAnalyticsScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // Top Header with Step Indicator
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -73,7 +71,6 @@ class OnboardingAnalyticsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 32),
 
-                // Main Heading
                 RichText(
                   text: const TextSpan(
                     text: 'Grow with ',
@@ -92,7 +89,6 @@ class OnboardingAnalyticsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // Subtitle Description
                 const Text(
                   'Harness the power of AI to transform raw farm data into actionable insights. Increase yield efficiency with precision analytics.',
                   style: TextStyle(
@@ -103,7 +99,6 @@ class OnboardingAnalyticsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 32),
 
-                // Yield Projection Card
                 Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
@@ -137,7 +132,6 @@ class OnboardingAnalyticsScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          // Placeholder for bar chart graphic
                           Row(
                             children: List.generate(4, (index) {
                               return Container(
@@ -154,7 +148,6 @@ class OnboardingAnalyticsScreen extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 16),
-                      // Dashboard Illustration Placeholder
                       ClipRRect(
                         borderRadius: BorderRadius.circular(16),
                         child: Image.asset(
@@ -169,7 +162,6 @@ class OnboardingAnalyticsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // Soil Health and AI Advisor Grid
                 Row(
                   children: [
                     Expanded(
@@ -195,7 +187,6 @@ class OnboardingAnalyticsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // Precision Farming Feature Card
                 Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
@@ -236,7 +227,6 @@ class OnboardingAnalyticsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 40),
 
-                // Page Indicator
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -254,7 +244,6 @@ class OnboardingAnalyticsScreen extends StatelessWidget {
     );
   }
 
-  // Helper for the square feature cards
   Widget _buildSmallInfoCard({
     required String title,
     required String subtitle,
@@ -294,7 +283,6 @@ class OnboardingAnalyticsScreen extends StatelessWidget {
     );
   }
 
-  // Helper for page indicator dots
   Widget _buildPageDot({required bool active}) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 4),

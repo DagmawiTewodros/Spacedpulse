@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'core/routing/app_router.dart';
+import 'core/theme/themes.dart';
 
 void main() {
   runApp(const FarmKeeperApp());
@@ -14,14 +15,7 @@ class FarmKeeperApp extends StatelessWidget {
       title: 'FarmKeeper',
       debugShowCheckedModeBanner: false,
 
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF2E7D32),
-        ),
-        useMaterial3: true,
-        fontFamily: 'Roboto',
-      ),
-
+      theme: AppTheme.lightTheme,
       routerConfig: appRouter,
     );
   }

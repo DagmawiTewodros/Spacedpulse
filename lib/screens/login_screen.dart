@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../core/theme/themes.dart';
 
 class LoginScreen extends StatelessWidget {
   static final _formKey = GlobalKey<FormState>();
@@ -9,7 +10,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F6F1),
+      backgroundColor: AppColors.background,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -26,7 +27,7 @@ class LoginScreen extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: const Color(0xFF1B5E20),
+                          color: AppColors.darkGreen,
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: const Icon(
@@ -88,7 +89,7 @@ class LoginScreen extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 11,
                               fontWeight: FontWeight.w800,
-                              color: Color(0xFF9E6D42),
+                              color: AppColors.highlightBrown,
                               letterSpacing: 1.0,
                             ),
                           ),
@@ -99,7 +100,7 @@ class LoginScreen extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 11,
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFF1B5E20),
+                                color: AppColors.darkGreen,
                               ),
                             ),
                           ),
@@ -145,11 +146,11 @@ class LoginScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState?.validate() ?? false) {
-                          context.go('/home');
+                          context.replace('/home');
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF236B27),
+                        backgroundColor: AppColors.primary,
                         foregroundColor: Colors.white,
                         elevation: 4,
                         shadowColor: Colors.black26,
@@ -218,7 +219,7 @@ class LoginScreen extends StatelessWidget {
                             TextSpan(
                               text: 'Create an account',
                               style: TextStyle(
-                                color: Color(0xFF1B5E20),
+                                color: AppColors.darkGreen,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -252,7 +253,7 @@ class LoginScreen extends StatelessWidget {
           style: const TextStyle(
             fontSize: 11,
             fontWeight: FontWeight.w800,
-            color: Color(0xFF9E6D42),
+            color: AppColors.highlightBrown,
             letterSpacing: 1.0,
           ),
         ),

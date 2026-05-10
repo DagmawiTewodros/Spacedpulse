@@ -1,55 +1,38 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color primaryGreen = Color(0xFF2E7D32);
+  // Greens
+  static const Color primary = Color(0xFF2E7D32);
   static const Color darkGreen = Color(0xFF1B5E20);
+  static const Color deepGreen = Color(0xFF063B12);
   static const Color lightGreen = Color(0xFFE8F5E9);
-  static const Color accentGreen = Color(0xFF3D8B2F);
+  static const Color iconBgGreen = Color(0xFFEDF3ED);
+
+  // Backgrounds & Surfaces
   static const Color background = Color(0xFFF4F7F1);
-  static const Color cardBackground = Colors.white;
-  static const Color textPrimary = Colors.black;
-  static const Color textSecondary = Colors.grey;
-  static const Color warning = Colors.orange;
-  static const Color error = Colors.red;
-  static const Color brownAccent = Color(0xFFB57F4D);
-  static const Color beige = Color(0xFFF5F6F1);
+  static const Color surface = Colors.white;
+  static const Color cardGrey = Color(0xFFEDF1E6);
+  static const Color inputFill = Colors.white;
+
+  // Accents
+  static const Color accentBrown = Color(0xFFB57F4D);
+  static const Color highlightBrown = Color(0xFF9E6D42);
+  static const Color accentOrange = Color(0xFFFF9800);
+  static const Color alertRed = Colors.red;
+
+  // Text
+  static const Color textPrimary = Color(0xFF1A1C19);
+  static const Color textGrey = Color(0xFF7A8677);
+  static const Color textWhite = Colors.white;
 }
 
-class AppTextStyles {
-  static const TextStyle heading = TextStyle(
-    fontSize: 24,
-    fontWeight: FontWeight.bold,
-    color: AppColors.textPrimary,
-  );
-
-  static const TextStyle subheading = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w600,
-    color: AppColors.textPrimary,
-  );
-
-  static const TextStyle body = TextStyle(
-    fontSize: 14,
-    color: AppColors.textPrimary,
-  );
-
-  static const TextStyle caption = TextStyle(
-    fontSize: 12,
-    color: AppColors.textSecondary,
-  );
-}
-
-class AppDecorations {
-  static BoxDecoration cardDecoration = BoxDecoration(
-    color: AppColors.cardBackground,
-    borderRadius: BorderRadius.circular(20),
-  );
-
-  static BoxDecoration bottomNavDecoration = const BoxDecoration(
-    color: Colors.white,
-    borderRadius: BorderRadius.only(
-      topLeft: Radius.circular(24),
-      topRight: Radius.circular(24),
-    ),
-  );
+class AppTheme {
+  static ThemeData get lightTheme {
+    return ThemeData(
+      useMaterial3: true,
+      colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+      scaffoldBackgroundColor: AppColors.background,
+      fontFamily: 'Roboto',
+    );
+  }
 }

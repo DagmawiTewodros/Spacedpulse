@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0xFFF4F7F1),
-      child: SafeArea(
+    return Scaffold(
+      backgroundColor: const Color(0xFFF4F7F1),
+
+      body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20.0),
 
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+
             children: [
               const Text(
                 'MORNING, ABEBE BELAY D.',
@@ -34,12 +37,17 @@ class HomeScreen extends StatelessWidget {
                     color: Color(0xFF1A1C19),
                     fontFamily: 'Roboto',
                   ),
+
                   children: [
                     TextSpan(text: 'Your fields are '),
+
                     TextSpan(
                       text: 'thriving',
-                      style: TextStyle(color: Color(0xFF2E7D32)),
+                      style: TextStyle(
+                        color: Color(0xFF2E7D32),
+                      ),
                     ),
+
                     TextSpan(text: '.'),
                   ],
                 ),
@@ -79,6 +87,7 @@ class HomeScreen extends StatelessWidget {
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(20),
+
                 decoration: BoxDecoration(
                   color: const Color(0xFF387E3B),
                   borderRadius: BorderRadius.circular(16),
@@ -86,6 +95,7 @@ class HomeScreen extends StatelessWidget {
 
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
                     Row(
                       children: const [
@@ -175,13 +185,16 @@ class HomeScreen extends StatelessWidget {
 
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment:
+                          MainAxisAlignment.spaceBetween,
 
                       children: [
                         Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment:
+                              CrossAxisAlignment.start,
 
                           children: const [
                             Text(
@@ -203,7 +216,10 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
 
-                        const Icon(Icons.bar_chart, color: Colors.grey),
+                        const Icon(
+                          Icons.bar_chart,
+                          color: Colors.grey,
+                        ),
                       ],
                     ),
 
@@ -222,13 +238,16 @@ class HomeScreen extends StatelessWidget {
                               value: 0.78,
                               strokeWidth: 12,
                               backgroundColor: Colors.white,
-                              valueColor: AlwaysStoppedAnimation<Color>(
+                              valueColor:
+                                  AlwaysStoppedAnimation<Color>(
                                 Color(0xFF1B5E20),
                               ),
                             ),
                           ),
 
                           Column(
+                            mainAxisSize: MainAxisSize.min,
+
                             children: const [
                               Text(
                                 '78%',
@@ -269,7 +288,8 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(height: 8),
 
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment:
+                          MainAxisAlignment.spaceBetween,
 
                       children: [
                         _buildLegendItem(
@@ -289,63 +309,6 @@ class HomeScreen extends StatelessWidget {
 
               const SizedBox(height: 24),
             ],
-          ),
-        ),
-      ),
-
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(24),
-            topRight: Radius.circular(24),
-          ),
-        ),
-
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-              children: [
-                _buildNavItem(context, Icons.home_filled, 'HOME', true, null),
-
-                _buildNavItem(
-                  context,
-                  Icons.energy_savings_leaf_outlined,
-                  'CROPS',
-                  false,
-                  '/harvest_page',
-                ),
-
-                _buildNavItem(
-                  context,
-                  Icons.assignment_outlined,
-                  'TASKS',
-                  false,
-                  null,
-                ),
-
-                _buildNavItem(
-                  context,
-                  Icons.wb_sunny_outlined,
-                  'WEATHER',
-                  false,
-                  null,
-                ),
-
-                _buildNavItem(
-                  context,
-                  Icons.person_outline,
-                  'PROFILE',
-                  false,
-                  '/profile_screen',
-                ),
-              ],
-            ),
           ),
         ),
       ),
@@ -370,12 +333,18 @@ class HomeScreen extends StatelessWidget {
 
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment:
+                MainAxisAlignment.spaceBetween,
 
             children: [
-              Icon(icon, color: iconColor, size: 24),
+              Icon(
+                icon,
+                color: iconColor,
+                size: 24,
+              ),
 
               if (badge != null)
                 Container(
@@ -425,14 +394,20 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildLegendItem(Color color, String text) {
+  Widget _buildLegendItem(
+    Color color,
+    String text,
+  ) {
     return Row(
       children: [
         Container(
           width: 8,
           height: 8,
 
-          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+          decoration: BoxDecoration(
+            color: color,
+            shape: BoxShape.circle,
+          ),
         ),
 
         const SizedBox(width: 6),

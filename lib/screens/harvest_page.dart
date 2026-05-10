@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class HarvestPage extends StatelessWidget {
   const HarvestPage({super.key});
 
-  // Custom Colors from image_748e9c.png
   static const Color bgColor = Color(0xffF6F8F1);
   static const Color darkGreen = Color(0xff23692A);
   static const Color accentOrange = Color(0xffFF9800);
@@ -92,27 +91,16 @@ class HarvestPage extends StatelessWidget {
             ),
             const SizedBox(height: 25),
 
-            // Maturity Progress Card
             _buildMaturityCard(),
-
             const SizedBox(height: 20),
-
-            // Input Section Card
             _buildInputSection(),
-
             const SizedBox(height: 20),
-
-            // Light Info Card
             _buildLightInfoCard(),
-
             const SizedBox(height: 20),
-
-            // Bottom Grid (Stats)
             _buildStatsGrid(),
           ],
         ),
       ),
-      bottomNavigationBar: _buildBottomNav(),
     );
   }
 
@@ -357,31 +345,6 @@ class HarvestPage extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildBottomNav() {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      selectedItemColor: darkGreen,
-      unselectedItemColor: Colors.grey,
-      showUnselectedLabels: true,
-      currentIndex: 2,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.grass), label: 'CROPS'),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.water_drop_outlined),
-          label: 'WATERING',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.agriculture),
-          label: 'HARVESTS',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.analytics_outlined),
-          label: 'ANALYTICS',
-        ),
-      ],
     );
   }
 }

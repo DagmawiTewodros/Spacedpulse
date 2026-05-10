@@ -16,7 +16,6 @@ class DailyTasksPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // TOP BAR
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -57,7 +56,6 @@ class DailyTasksPage extends StatelessWidget {
 
                 const SizedBox(height: 26),
 
-                // TITLE
                 const Text(
                   "Daily Tasks",
                   style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold),
@@ -72,7 +70,6 @@ class DailyTasksPage extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // STATUS CARDS
                 Row(
                   children: [
                     Expanded(
@@ -227,7 +224,6 @@ class DailyTasksPage extends StatelessWidget {
 
                 const SizedBox(height: 28),
 
-                // MORNING
                 sectionTitle(Icons.wb_sunny_outlined, "Morning"),
 
                 const SizedBox(height: 16),
@@ -250,7 +246,6 @@ class DailyTasksPage extends StatelessWidget {
 
                 const SizedBox(height: 28),
 
-                // AFTERNOON
                 sectionTitle(Icons.wb_sunny, "Afternoon"),
 
                 const SizedBox(height: 16),
@@ -268,7 +263,6 @@ class DailyTasksPage extends StatelessWidget {
 
                 const SizedBox(height: 28),
 
-                // EVENING
                 sectionTitle(Icons.nights_stay_outlined, "Evening"),
 
                 const SizedBox(height: 16),
@@ -283,7 +277,6 @@ class DailyTasksPage extends StatelessWidget {
 
                 const SizedBox(height: 40),
 
-                // TIP CARD
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(22),
@@ -381,7 +374,6 @@ class DailyTasksPage extends StatelessWidget {
     );
   }
 
-  // SECTION TITLE
   static Widget sectionTitle(IconData icon, String title) {
     return Row(
       children: [
@@ -401,7 +393,6 @@ class DailyTasksPage extends StatelessWidget {
     );
   }
 
-  // TASK TILE
   static Widget taskTile({
     required String title,
     required String subtitle,
@@ -489,7 +480,6 @@ class DailyTasksPage extends StatelessWidget {
     );
   }
 
-  // COMPLETED TILE
   static Widget completedTaskTile() {
     return Opacity(
       opacity: 0.45,
@@ -564,7 +554,6 @@ class DailyTasksPage extends StatelessWidget {
     );
   }
 
-  // NAV ITEM
   static Widget navItem(IconData icon, String label, bool active) {
     return Column(
       mainAxisSize: MainAxisSize.min,

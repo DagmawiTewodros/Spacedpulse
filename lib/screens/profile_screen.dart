@@ -74,14 +74,6 @@ class ProfilePage extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // ListView.builder(
-            //   itemCount: 2, // settingsData.lenght,
-            //   shrinkWrap: true,
-            //   itemBuilder: (context, i) {
-            //     // final settingData = settingsData[i];
-            //     return settingsTile('Manage Land Assets', Icons.map);
-            //   },
-            // ),
             settingsTile('Manage Land Assets', Icons.map),
 
             settingsTile('Change PIN', Icons.lock),

@@ -14,7 +14,7 @@ class NotificationsPage extends StatelessWidget {
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => context.go('/profile_screen'),
+          onPressed: () => context.pop(),
         ),
         title: const Text(
           'Notifications',

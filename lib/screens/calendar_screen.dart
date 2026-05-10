@@ -16,7 +16,6 @@ class FarmKeeperPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // TOP BAR
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -56,7 +55,6 @@ class FarmKeeperPage extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // CALENDAR CARD
                 Container(
                   padding: const EdgeInsets.all(20),
 
@@ -67,7 +65,6 @@ class FarmKeeperPage extends StatelessWidget {
 
                   child: Column(
                     children: [
-                      // HEADER
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -103,7 +100,6 @@ class FarmKeeperPage extends StatelessWidget {
 
                       const SizedBox(height: 24),
 
-                      // DAYS
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
@@ -119,7 +115,6 @@ class FarmKeeperPage extends StatelessWidget {
 
                       const SizedBox(height: 18),
 
-                      // CALENDAR GRID
                       GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
@@ -167,7 +162,6 @@ class FarmKeeperPage extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // TITLE
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
@@ -191,7 +185,6 @@ class FarmKeeperPage extends StatelessWidget {
 
                 const SizedBox(height: 18),
 
-                // CARD 1
                 taskCard(
                   Icons.water_drop_outlined,
                   Colors.green,
@@ -203,7 +196,6 @@ class FarmKeeperPage extends StatelessWidget {
 
                 const SizedBox(height: 16),
 
-                // CARD 2
                 taskCard(
                   Icons.inventory_2_outlined,
                   Colors.orange,
@@ -215,7 +207,6 @@ class FarmKeeperPage extends StatelessWidget {
 
                 const SizedBox(height: 16),
 
-                // CARD 3
                 taskCard(
                   Icons.analytics_outlined,
                   Colors.green,
@@ -227,7 +218,6 @@ class FarmKeeperPage extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                // FORECAST CARD
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(24),
@@ -282,7 +272,6 @@ class FarmKeeperPage extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                // LEGEND
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(20),
@@ -345,7 +334,7 @@ class FarmKeeperPage extends StatelessWidget {
     );
   }
 
-  static Widget taskCard(
+  Widget taskCard(
     IconData icon,
     Color iconColor,
     Color iconBg,
@@ -364,7 +353,6 @@ class FarmKeeperPage extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // ICON
           Container(
             padding: const EdgeInsets.all(12),
 
@@ -375,7 +363,6 @@ class FarmKeeperPage extends StatelessWidget {
 
           const SizedBox(width: 14),
 
-          // TEXT
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -400,7 +387,6 @@ class FarmKeeperPage extends StatelessWidget {
 
           const SizedBox(width: 10),
 
-          // TIME
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
 

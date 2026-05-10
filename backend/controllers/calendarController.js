@@ -2,18 +2,17 @@ const { pool } = require('../db');
 
 const getCalendarEvents = async (req, res) => {
   try {
-    const { year, month } = req.query; // Expecting year (YYYY) and month (1-12)
+    const { year, month } = req.query;
     
     if (!year || !month) {
       return res.status(400).json({ error: 'Year and month are required query parameters (e.g., ?year=2026&month=5)' });
     }
 
     const startDate = new Date(year, month - 1, 1);
-    const endDate = new Date(year, month, 0); // Last day of the month
+    const endDate = new Date(year, month, 0);
 
     const events = [];
 
-    // Fetch active crops
     const cropsResult = await pool.query('SELECT * FROM crops WHERE is_harvested = FALSE');
     const crops = cropsResult.rows;
 
@@ -21,7 +20,6 @@ const getCalendarEvents = async (req, res) => {
       const plantDate = new Date(crop.planting_date);
       const harvestDate = new Date(crop.estimated_harvest_date);
 
-      // 1. Planting Events
       if (plantDate >= startDate && plantDate <= endDate) {
         events.push({
           date: plantDate.toISOString().split('T')[0],
@@ -34,7 +32,6 @@ const getCalendarEvents = async (req, res) => {
         });
       }
 
-      // 2. Harvest Events
       if (harvestDate >= startDate && harvestDate <= endDate) {
         events.push({
           date: harvestDate.toISOString().split('T')[0],
@@ -47,11 +44,9 @@ const getCalendarEvents = async (req, res) => {
         });
       }
 
-      // 3. Watering Events (Iteratively calculating dates)
       if (crop.watering_interval_days) {
         let currentWateringDate = crop.last_watered_date ? new Date(crop.last_watered_date) : new Date(crop.planting_date);
         
-        // Loop to find all watering dates within the requested month
         while (currentWateringDate <= endDate) {
           currentWateringDate.setDate(currentWateringDate.getDate() + crop.watering_interval_days);
           
@@ -70,7 +65,6 @@ const getCalendarEvents = async (req, res) => {
       }
     });
 
-    // Sort events sequentially by date
     events.sort((a, b) => new Date(a.date) - new Date(b.date));
 
     res.json({ data: events });

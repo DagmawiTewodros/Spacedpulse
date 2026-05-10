@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+
+class NavItem {
+  final IconData icon;
+  final String label;
+
+  const NavItem({required this.icon, required this.label});
+}
 
 class BottomNavbar extends StatelessWidget {
   final Widget child;
@@ -7,6 +13,7 @@ class BottomNavbar extends StatelessWidget {
   final PreferredSizeWidget? appBar;
   final Function(int)? onNavItemTapped;
   final int currentIndex;
+  final List<NavItem> items;
 
   const BottomNavbar({
     super.key,
@@ -15,6 +22,7 @@ class BottomNavbar extends StatelessWidget {
     this.appBar,
     this.onNavItemTapped,
     this.currentIndex = 0,
+    required this.items,
   });
 
   @override
@@ -35,39 +43,16 @@ class BottomNavbar extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _buildNavItem(
-                  Icons.home_filled,
-                  'HOME',
-                  currentIndex == 0,
-                  0,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: List.generate(
+                items.length,
+                (index) => _buildNavItem(
+                  items[index].icon,
+                  items[index].label,
+                  currentIndex == index,
+                  index,
                 ),
-                _buildNavItem(
-                  Icons.energy_savings_leaf_outlined,
-                  'CROPS',
-                  currentIndex == 1,
-                  1,
-                ),
-                _buildNavItem(
-                  Icons.assignment_outlined,
-                  'TASKS',
-                  currentIndex == 2,
-                  2,
-                ),
-                _buildNavItem(
-                  Icons.wb_sunny_outlined,
-                  'WEATHER',
-                  currentIndex == 3,
-                  3,
-                ),
-                _buildNavItem(
-                  Icons.person_outline,
-                  'PROFILE',
-                  currentIndex == 4,
-                  4,
-                ),
-              ],
+              ),
             ),
           ),
         ),

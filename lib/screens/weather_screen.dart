@@ -16,7 +16,6 @@ class WeatherScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // ================= TOP BAR =================
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -57,7 +56,6 @@ class WeatherScreen extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // ================= WEATHER MAIN CARD =================
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(22),
@@ -152,7 +150,6 @@ class WeatherScreen extends StatelessWidget {
 
                       const SizedBox(height: 24),
 
-                      // ================= ALERT BOX =================
                       Container(
                         padding: const EdgeInsets.all(18),
 
@@ -213,7 +210,6 @@ class WeatherScreen extends StatelessWidget {
 
                 const SizedBox(height: 22),
 
-                // ================= WEATHER STATS =================
                 Row(
                   children: [
                     Expanded(
@@ -267,7 +263,6 @@ class WeatherScreen extends StatelessWidget {
 
                 const SizedBox(height: 28),
 
-                // ================= FORECAST TITLE =================
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
@@ -291,7 +286,6 @@ class WeatherScreen extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                // ================= FORECAST GRID =================
                 GridView.count(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
@@ -340,7 +334,6 @@ class WeatherScreen extends StatelessWidget {
 
                 const SizedBox(height: 24),
 
-                // ================= CROP CARD =================
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(22),
@@ -402,7 +395,6 @@ class WeatherScreen extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                // ================= ALERT CARD =================
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(22),
@@ -476,7 +468,6 @@ class WeatherScreen extends StatelessWidget {
     );
   }
 
-  // ================= WEATHER STAT CARD =================
   static Widget weatherStatCard(
     String value,
     String subtitle,
@@ -527,7 +518,6 @@ class WeatherScreen extends StatelessWidget {
     );
   }
 
-  // ================= CHIP =================
   static Widget smallChip(String text) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
@@ -549,7 +539,6 @@ class WeatherScreen extends StatelessWidget {
   }
 }
 
-// ================= FORECAST CARD =================
 class ForecastCard extends StatelessWidget {
   final String day;
   final String temp;

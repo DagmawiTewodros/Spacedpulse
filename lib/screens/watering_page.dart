@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
+import '../core/theme/themes.dart';
 
 class WateringPage extends StatelessWidget {
   const WateringPage({super.key});
 
-  // Custom Colors to match the image
-  static const Color bgColor = Color(0xffF9FAF5);
-  static const Color darkGreen = Color(0xff2A6F2B);
-  static const Color accentBrown = Color(0xffA67C52);
-  static const Color cardGrey = Color(0xffEDF1E6);
-  static const Color textGrey = Color(0xff7A8677);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgColor,
+      backgroundColor: AppColors.background,
       appBar: _buildAppBar(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -30,7 +24,6 @@ class WateringPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: _buildBottomNav(),
     );
   }
 
@@ -60,7 +53,7 @@ class WateringPage extends StatelessWidget {
       title: const Text(
         "Organic Architect",
         style: TextStyle(
-          color: darkGreen,
+          color: AppColors.primary,
           fontWeight: FontWeight.bold,
           fontSize: 18,
         ),
@@ -68,7 +61,7 @@ class WateringPage extends StatelessWidget {
       actions: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.settings_outlined, color: darkGreen),
+          icon: const Icon(Icons.settings_outlined, color: AppColors.primary),
         ),
       ],
     );
@@ -79,7 +72,7 @@ class WateringPage extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: cardGrey,
+        color: AppColors.cardGrey,
         borderRadius: BorderRadius.circular(32),
       ),
       child: Column(
@@ -88,7 +81,7 @@ class WateringPage extends StatelessWidget {
           const Text(
             "CROP FOCUS",
             style: TextStyle(
-              color: accentBrown,
+              color: AppColors.accentBrown,
               fontWeight: FontWeight.bold,
               fontSize: 12,
               letterSpacing: 1.2,
@@ -106,12 +99,12 @@ class WateringPage extends StatelessWidget {
           const SizedBox(height: 12),
           const Text(
             "Management of precision hydration for Plot A-12. The soil moisture levels are currently at 42%.",
-            style: TextStyle(color: textGrey, fontSize: 13, height: 1.4),
+            style: TextStyle(color: AppColors.textGrey, fontSize: 13, height: 1.4),
           ),
           const SizedBox(height: 24),
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
-              backgroundColor: darkGreen,
+              backgroundColor: AppColors.primary,
               minimumSize: const Size(double.infinity, 54),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
@@ -140,7 +133,7 @@ class WateringPage extends StatelessWidget {
                 Icon(
                   Icons.calendar_today_outlined,
                   size: 16,
-                  color: accentBrown,
+                  color: AppColors.accentBrown,
                 ),
                 SizedBox(width: 8),
                 Text(
@@ -166,7 +159,7 @@ class WateringPage extends StatelessWidget {
         children: [
           const Row(
             children: [
-              Icon(Icons.access_time, color: darkGreen),
+              Icon(Icons.access_time, color: AppColors.primary),
               SizedBox(width: 12),
               Expanded(
                 child: Text(
@@ -181,7 +174,7 @@ class WateringPage extends StatelessWidget {
               Text(
                 "EDITING\nENABLED",
                 style: TextStyle(
-                  color: accentBrown,
+                  color: AppColors.accentBrown,
                   fontSize: 10,
                   fontWeight: FontWeight.bold,
                 ),
@@ -207,8 +200,8 @@ class WateringPage extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 16),
       decoration: BoxDecoration(
-        color: isSelected ? Colors.transparent : cardGrey,
-        border: isSelected ? Border.all(color: darkGreen, width: 1.5) : null,
+        color: isSelected ? Colors.transparent : AppColors.cardGrey,
+        border: isSelected ? Border.all(color: AppColors.primary, width: 1.5) : null,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -222,7 +215,7 @@ class WateringPage extends StatelessWidget {
             style: const TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.bold,
-              color: darkGreen,
+              color: AppColors.primary,
             ),
           ),
         ],
@@ -234,7 +227,7 @@ class WateringPage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: cardGrey,
+        color: AppColors.cardGrey,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
@@ -246,7 +239,7 @@ class WateringPage extends StatelessWidget {
                 Text(
                   "SMART ADAPTATION",
                   style: TextStyle(
-                    color: accentBrown,
+                    color: AppColors.accentBrown,
                     fontSize: 10,
                     fontWeight: FontWeight.bold,
                   ),
@@ -257,12 +250,12 @@ class WateringPage extends StatelessWidget {
                 ),
                 Text(
                   "Automatically skip if rain >80%",
-                  style: TextStyle(color: textGrey, fontSize: 11),
+                  style: TextStyle(color: AppColors.textGrey, fontSize: 11),
                 ),
               ],
             ),
           ),
-          Switch(value: true, onChanged: (v) {}, activeColor: darkGreen),
+          Switch(value: true, onChanged: (v) {}, activeColor: AppColors.primary),
         ],
       ),
     );
@@ -292,8 +285,8 @@ class WateringPage extends StatelessWidget {
                 child: CircularProgressIndicator(
                   value: 0.75,
                   strokeWidth: 12,
-                  backgroundColor: cardGrey,
-                  valueColor: const AlwaysStoppedAnimation<Color>(darkGreen),
+                  backgroundColor: AppColors.cardGrey,
+                  valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
                 ),
               ),
               const Column(
@@ -307,7 +300,7 @@ class WateringPage extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 9,
                       fontWeight: FontWeight.bold,
-                      color: darkGreen,
+                      color: AppColors.primary,
                     ),
                   ),
                 ],
@@ -318,7 +311,7 @@ class WateringPage extends StatelessWidget {
           const Text(
             "Based on current soil sensors and last\nwatering cycle.",
             textAlign: TextAlign.center,
-            style: TextStyle(color: textGrey, fontSize: 12),
+            style: TextStyle(color: AppColors.textGrey, fontSize: 12),
           ),
         ],
       ),
@@ -329,7 +322,7 @@ class WateringPage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: cardGrey,
+        color: AppColors.cardGrey,
         borderRadius: BorderRadius.circular(32),
       ),
       child: Column(
@@ -337,7 +330,7 @@ class WateringPage extends StatelessWidget {
         children: [
           const Row(
             children: [
-              Icon(Icons.history, color: darkGreen),
+              Icon(Icons.history, color: AppColors.primary),
               SizedBox(width: 12),
               Text(
                 "Recent History",
@@ -385,8 +378,8 @@ class WateringPage extends StatelessWidget {
       child: Row(
         children: [
           CircleAvatar(
-            backgroundColor: cardGrey,
-            child: Icon(icon, color: darkGreen, size: 20),
+            backgroundColor: AppColors.cardGrey,
+            child: Icon(icon, color: AppColors.primary, size: 20),
           ),
           const SizedBox(width: 16),
           Expanded(
@@ -396,7 +389,7 @@ class WateringPage extends StatelessWidget {
                 Text(date, style: const TextStyle(fontWeight: FontWeight.bold)),
                 Text(
                   subtitle,
-                  style: const TextStyle(color: textGrey, fontSize: 11),
+                  style: const TextStyle(color: AppColors.textGrey, fontSize: 11),
                 ),
               ],
             ),
@@ -404,35 +397,13 @@ class WateringPage extends StatelessWidget {
           Text(
             timeAgo,
             style: const TextStyle(
-              color: textGrey,
+              color: AppColors.textGrey,
               fontSize: 9,
               fontWeight: FontWeight.bold,
             ),
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildBottomNav() {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      currentIndex: 1,
-      selectedItemColor: darkGreen,
-      unselectedItemColor: textGrey,
-      showUnselectedLabels: true,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.grass), label: 'CROPS'),
-        BottomNavigationBarItem(icon: Icon(Icons.opacity), label: 'WATERING'),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.agriculture_outlined),
-          label: 'HARVESTS',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.analytics_outlined),
-          label: 'ANALYTICS',
-        ),
-      ],
     );
   }
 }

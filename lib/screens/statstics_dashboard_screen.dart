@@ -16,7 +16,6 @@ class DashboardPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // TOP BAR
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -56,7 +55,6 @@ class DashboardPage extends StatelessWidget {
 
                 const SizedBox(height: 26),
 
-                // SMALL TITLE
                 const Text(
                   "ANALYTICS ENGINE",
                   style: TextStyle(
@@ -69,7 +67,6 @@ class DashboardPage extends StatelessWidget {
 
                 const SizedBox(height: 10),
 
-                // MAIN TITLE
                 const Text(
                   "Productivity\nDashboard",
                   style: TextStyle(
@@ -81,10 +78,8 @@ class DashboardPage extends StatelessWidget {
 
                 const SizedBox(height: 22),
 
-                // BUTTONS
                 Row(
                   children: [
-                    // LAST 12 MONTHS
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,
@@ -119,7 +114,6 @@ class DashboardPage extends StatelessWidget {
 
                     const SizedBox(width: 10),
 
-                    // EXPORT
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,
@@ -156,7 +150,6 @@ class DashboardPage extends StatelessWidget {
 
                 const SizedBox(height: 22),
 
-                // STATS CARDS
                 Row(
                   children: [
                     Expanded(
@@ -185,7 +178,6 @@ class DashboardPage extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                // PRODUCTIVITY TREND
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(20),
@@ -251,7 +243,6 @@ class DashboardPage extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                // HARVESTED CROPS
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(20),
@@ -296,7 +287,6 @@ class DashboardPage extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                // PIE CHART
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(22),
@@ -395,7 +385,6 @@ class DashboardPage extends StatelessWidget {
 
                 const SizedBox(height: 20),
 
-                // TABLE
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(20),
@@ -472,7 +461,6 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
-  // STAT CARD
   static Widget statCard(
     String title,
     String value,
@@ -553,7 +541,6 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
-  // CROP BAR
   static Widget cropBar(String title, double greenValue, double orangeValue) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -614,7 +601,6 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
-  // LEGEND ITEM
   static Widget legendItem(Color color, String text) {
     return Row(
       children: [
@@ -627,7 +613,6 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
-  // TABLE HEADER
   static Widget tableHeader() {
     return Row(
       children: const [
@@ -666,7 +651,6 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
-  // HARVEST ROW
   static Widget harvestRow(String date, String field, String crop, String qty) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
@@ -685,7 +669,6 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
-  // NAV ITEM
   static Widget navItem(IconData icon, String label, bool active) {
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -716,7 +699,6 @@ class DashboardPage extends StatelessWidget {
   }
 }
 
-// CUSTOM GRAPH
 class GraphPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
