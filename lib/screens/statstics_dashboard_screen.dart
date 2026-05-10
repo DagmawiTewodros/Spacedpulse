@@ -494,13 +494,15 @@ class DashboardPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 10,
-                  letterSpacing: 1.5,
-                  color: Color(0xFFB37A32),
-                  fontWeight: FontWeight.bold,
+              Expanded(
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 10,
+                    letterSpacing: 1.5,
+                    color: Color(0xFFB37A32),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
 

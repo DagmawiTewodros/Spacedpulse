@@ -24,9 +24,21 @@ class _SplashScreenState extends State<SplashScreen> {
       if (progress >= 1) {
         timer.cancel();
 
-        context.replace('/home');
+        _navigateAfterSplash();
       }
     });
+  }
+
+  Future<void> _navigateAfterSplash() async {
+    // For now, always show onboarding on first launch
+    // TODO: Implement proper first-launch detection with shared_preferences
+    const bool isFirstLaunch = true; // Change to false to skip onboarding
+
+    if (isFirstLaunch) {
+      context.replace('/onboarding_screen');
+    } else {
+      context.replace('/home');
+    }
   }
 
   @override

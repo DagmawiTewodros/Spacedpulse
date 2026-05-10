@@ -18,7 +18,7 @@ import '../../screens/calendar_screen.dart';
 import '../../screens/main_app_screen.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: '/create_account_screen',
+  initialLocation: '/splash_screen',
 
   routes: [
     GoRoute(

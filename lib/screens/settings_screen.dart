@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../core/widgets/confirmation_dialog.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -20,6 +21,10 @@ class _SettingsPageState extends State<SettingsPage> {
         backgroundColor: const Color(0xFFF4F7F1),
         elevation: 0,
         centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => context.go('/profile_screen'),
+        ),
         title: const Text(
           'Settings',
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),

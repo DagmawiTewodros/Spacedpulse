@@ -195,7 +195,7 @@ class WateringReminderScreen extends StatelessWidget {
                       height: 56,
                       child: ElevatedButton(
                         onPressed: () {
-                          context.go('/create_account_screen');
+                          context.go('/home');
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF81D483),
@@ -213,7 +213,7 @@ class WateringReminderScreen extends StatelessWidget {
                       height: 56,
                       child: ElevatedButton(
                         onPressed: () {
-                          context.go('/onboarding_screen');
+                          context.go('/home');
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF1B5E20),

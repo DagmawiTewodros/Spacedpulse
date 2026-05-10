@@ -21,7 +21,7 @@ class OnboardingAnalyticsScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(28),
             ),
             onPressed: () {
-              context.replace('/main_app');
+              context.replace('/home');
             },
             label: const Row(
               mainAxisAlignment: MainAxisAlignment.center,

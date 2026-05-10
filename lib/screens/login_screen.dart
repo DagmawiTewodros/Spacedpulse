@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatelessWidget {
+  static final _formKey = GlobalKey<FormState>();
+
   const LoginScreen({super.key});
 
   @override
@@ -13,7 +15,9 @@ class LoginScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: Column(
+              child: Form(
+                key: _formKey,
+                child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Row(
@@ -64,6 +68,12 @@ class LoginScreen extends StatelessWidget {
                     label: 'EMAIL ADDRESS',
                     hint: 'name@farmkeeper.com',
                     icon: Icons.mail_outline,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) return 'Email is required';
+                      if (!value.contains('@') || !value.contains('.')) 
+                        return 'Enter a valid email address';
+                      return null;
+                    },
                   ),
                   const SizedBox(height: 20),
 
@@ -96,8 +106,13 @@ class LoginScreen extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 8),
-                      TextField(
+                      TextFormField(
                         obscureText: true,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) return 'Password is required';
+                          if (value.length < 6) return 'Minimum 6 characters required';
+                          return null;
+                        },
                         decoration: InputDecoration(
                           hintText: '........',
                           prefixIcon: Icon(
@@ -129,7 +144,9 @@ class LoginScreen extends StatelessWidget {
                     height: 60,
                     child: ElevatedButton(
                       onPressed: () {
-                        context.go('/splash_screen');
+                        if (_formKey.currentState?.validate() ?? false) {
+                          context.go('/home');
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF236B27),
@@ -211,7 +228,8 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                ],
+              ],
+              ),
               ),
             ),
           ),
@@ -224,6 +242,7 @@ class LoginScreen extends StatelessWidget {
     required String label,
     required String hint,
     required IconData icon,
+    String? Function(String?)? validator,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -238,7 +257,8 @@ class LoginScreen extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        TextField(
+        TextFormField(
+          validator: validator,
           decoration: InputDecoration(
             hintText: hint,
             hintStyle: TextStyle(color: Colors.grey.shade400, fontSize: 14),
