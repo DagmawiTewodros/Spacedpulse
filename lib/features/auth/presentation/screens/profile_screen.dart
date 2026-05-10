@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../core/widgets/confirmation_dialog.dart';
+import '../../../../core/widgets/confirmation_dialog.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

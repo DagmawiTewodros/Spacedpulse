@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../core/widgets/bottom_navbar.dart';
-import '../../screens/home_screen.dart';
-import '../../screens/statstics_dashboard_screen.dart';
-import '../../screens/tasks_screen.dart';
-import '../../screens/weather_screen.dart';
-import '../../screens/profile_screen.dart';
+import '../../../../core/widgets/bottom_navbar.dart';
+import 'home_screen.dart';
+import 'statstics_dashboard_screen.dart';
+import 'tasks_screen.dart';
+import 'weather_screen.dart';
+import 'profile_screen.dart';
 
-import '../../screens/harvest_page.dart';
-import '../../screens/watering_page.dart';
-import '../../screens/calendar_screen.dart';
+import 'harvest_page.dart';
+import 'watering_page.dart';
+import 'calendar_screen.dart';
 
 class MainAppScreen extends StatefulWidget {
   final int initialIndex;

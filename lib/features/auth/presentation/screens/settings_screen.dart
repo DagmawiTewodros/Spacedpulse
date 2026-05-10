@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../core/widgets/confirmation_dialog.dart';
+import '../../../../core/widgets/confirmation_dialog.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});

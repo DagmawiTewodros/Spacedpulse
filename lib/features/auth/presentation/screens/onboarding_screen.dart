@@ -13,7 +13,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   final List<Map<String, dynamic>> onboardingData = [
     {
-      'image': 'assets/images/onboarding1.png',
+      'image': 'assets/images/splash1.png',
       'icon': Icons.local_florist,
       'title': 'Track Your ',
       'highlight': 'Crops',
@@ -22,7 +22,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           'Manage your entire crop lifecycle from initial planting to the final harvest with precision tools designed for the modern grower.',
     },
     {
-      'image': 'assets/images/onboarding2.png',
+      'image': 'assets/images/splash2.png',
       'icon': Icons.water_drop,
       'title': 'Smart ',
       'highlight': 'Irrigation',
@@ -31,7 +31,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           'Monitor soil moisture and automate watering schedules to ensure optimal growth conditions for your crops.',
     },
     {
-      'image': 'assets/images/onboarding3.png',
+      'image': 'assets/images/splash3.png',
       'icon': Icons.insights,
       'title': 'Data ',
       'highlight': 'Analytics',

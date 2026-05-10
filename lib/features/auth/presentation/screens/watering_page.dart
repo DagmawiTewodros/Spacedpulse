@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../core/theme/themes.dart';
+import '../../../../core/theme/themes.dart';
 
 class WateringPage extends StatelessWidget {
   const WateringPage({super.key});
